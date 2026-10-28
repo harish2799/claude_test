@@ -60,6 +60,19 @@ def fingerprint(script: str) -> str:
     return hashlib.sha256((config + "\n" + script).encode()).hexdigest()
 
 
+async def synthesize(edge_tts, text: str, voice: str, clip: Path, turn: int, attempts: int = 4) -> None:
+    """The TTS service occasionally returns no audio for a request; retry with backoff."""
+    for attempt in range(1, attempts + 1):
+        try:
+            await edge_tts.Communicate(text, voice, rate=RATE).save(str(clip))
+            return
+        except Exception as exc:
+            if attempt == attempts:
+                raise RuntimeError(f"turn {turn} failed after {attempts} attempts: {text[:80]!r}") from exc
+            print(f"  turn {turn}: {type(exc).__name__}, retrying ({attempt}/{attempts - 1})", flush=True)
+            await asyncio.sleep(2 ** attempt)
+
+
 async def render(turns: list[tuple[str, str]], out_mp3: Path) -> None:
     import edge_tts  # imported here so parsing/tests don't need it
 
@@ -72,7 +85,7 @@ async def render(turns: list[tuple[str, str]], out_mp3: Path) -> None:
         parts = []
         for i, (speaker, said) in enumerate(turns):
             clip = tmp / f"{i:04d}.mp3"
-            await edge_tts.Communicate(speakable(said), VOICES[speaker], rate=RATE).save(str(clip))
+            await synthesize(edge_tts, speakable(said), VOICES[speaker], clip, i + 1)
             parts += [clip, silence]
             print(f"  [{i + 1}/{len(turns)}] {speaker}", flush=True)
         listing = tmp / "list.txt"
