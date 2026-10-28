@@ -34,15 +34,17 @@ Each `weekly/week-NN/` folder has:
 - `week-NN-slides.pptx`: beginner-friendly visual deck (no background needed), with speaker notes
 - `week-NN-deep-dive-slides.pptx`: optional technical version
 - `images/`: illustrations drawn as SVG (`images/src/`) and rendered to PNG
-- `podcast-script.md`: a Q&A between Dr. Meera (expert) and Rohan (learner)
-- `podcast.mp3`: generated from the script by the **Weekly podcast audio** GitHub Action
+- `podcast-script.md` / `podcast-deep-dive-script.md`: Q&A between Dr. Meera (expert) and Rohan (learner)
+- `podcast.mp3` / `podcast-deep-dive.mp3`: generated from the script by the **Weekly podcast audio** GitHub Action
   (Microsoft Edge neural voices via `edge-tts`, then `ffmpeg`), committed back automatically
 
 Rebuild locally:
 ```bash
 cd semiconductor/tools && npm install && cd ..
 NODE_PATH=$(npm root -g) node tools/render_images.js weekly/week-01/images   # SVG -> PNG (Playwright)
+python tools/gen_week01_deepdive_svgs.py   # computed deep-dive diagrams -> images/src/
 NODE_PATH=tools/node_modules node tools/build_week01_slides.js
+NODE_PATH=tools/node_modules node tools/build_week01_deepdive_slides.js
 pip install edge-tts && python tools/make_podcast.py --all   # needs ffmpeg + internet
 ```
 
@@ -51,7 +53,7 @@ pip install edge-tts && python tools/make_podcast.py --all   # needs ffmpeg + in
 - `tracker/watchlist.toml`: 29 companies with aliases. Aliases are matched case-sensitively on word boundaries.
 
 ## Progress
-- [x] Week 1: beginner lesson ([notes/week-01-how-chips-work.md](notes/week-01-how-chips-work.md)), slides, podcast; skeleton, 26 sources (incl. 14 newsletters), SQLite schema, RSS fetch, lesson 1
+- [x] Week 1: beginner lesson ([notes/week-01-how-chips-work.md](notes/week-01-how-chips-work.md)) + deep dive ([notes/week-01-deep-dive.md](notes/week-01-deep-dive.md)), two decks, two podcast episodes; skeleton, 26 sources (incl. 14 newsletters), SQLite schema, RSS fetch, lesson 1
 - [ ] Week 2: Claude tagging (topic, company, region, importance)
 - [ ] Week 3: first daily brief generated locally
 - [ ] Week 4: GitHub Actions daily run at 7:00 AM IST, brief committed to `briefs/`

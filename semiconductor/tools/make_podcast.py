@@ -6,9 +6,10 @@ Other lines (headings, notes, blank lines) are ignored.
 
 Usage:
     python tools/make_podcast.py weekly/week-01/podcast-script.md
-    python tools/make_podcast.py --all            # every weekly/*/podcast-script.md
-An MP3 is rebuilt only when the script (or voice config) changed; the hash of
-what was rendered is stored next to it in podcast.mp3.sha256.
+    python tools/make_podcast.py --all            # every weekly/*/podcast*-script.md
+<name>-script.md renders to <name>.mp3 (podcast-script.md -> podcast.mp3,
+podcast-deep-dive-script.md -> podcast-deep-dive.mp3). An MP3 is rebuilt only when
+the script (or voice config) changed; the rendered hash is kept in <name>.mp3.sha256.
 """
 
 import argparse
@@ -82,8 +83,9 @@ async def render(turns: list[tuple[str, str]], out_mp3: Path) -> None:
 
 def build(script_path: Path, force: bool = False) -> bool:
     script = script_path.read_text(encoding="utf-8")
-    out_mp3 = script_path.with_name("podcast.mp3")
-    sha_file = script_path.with_name("podcast.mp3.sha256")
+    stem = script_path.name.removesuffix("-script.md")
+    out_mp3 = script_path.with_name(f"{stem}.mp3")
+    sha_file = script_path.with_name(f"{stem}.mp3.sha256")
     digest = fingerprint(script)
     if not force and out_mp3.exists() and sha_file.exists() and sha_file.read_text().strip() == digest:
         print(f"{script_path}: up to date")
@@ -101,10 +103,10 @@ def build(script_path: Path, force: bool = False) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("scripts", nargs="*", type=Path)
-    parser.add_argument("--all", action="store_true", help="build every weekly/*/podcast-script.md")
+    parser.add_argument("--all", action="store_true", help="build every weekly/*/podcast*-script.md")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
-    scripts = sorted(ROOT.glob("weekly/*/podcast-script.md")) if args.all else args.scripts
+    scripts = sorted(ROOT.glob("weekly/*/podcast*-script.md")) if args.all else args.scripts
     if not scripts:
         parser.error("give script paths or --all")
     for path in scripts:

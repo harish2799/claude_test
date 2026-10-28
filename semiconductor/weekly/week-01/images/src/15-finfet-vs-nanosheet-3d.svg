@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="640" fill="#FFFFFF"/>
+<text x="700.0" y="40.0" font-size="28" fill="#0B1F33" text-anchor="middle" font-weight="bold">FinFET vs nanosheet in 3D (not to scale)</text>
+<text x="700.0" y="70.0" font-size="18" fill="#5B7083" text-anchor="middle">Current flows into the page along the fin / sheets. The gate crosses over like a bridge.</text>
+<rect x="20.0" y="90.0" width="670.0" height="530.0" rx="18" fill="#EEF2F6"/>
+<text x="355.0" y="128.0" font-size="23" fill="#0B1F33" text-anchor="middle" font-weight="bold">FinFET: gate wraps 3 sides</text>
+<polygon points="80.0,440.0 188.0,368.0 608.0,368.0 500.0,440.0" fill="#688096"/>
+<polygon points="500.0,440.0 608.0,368.0 608.0,418.0 500.0,490.0" fill="#485968"/>
+<rect x="80.0" y="440.0" width="420.0" height="50.0" rx="0" fill="#5B7083"/>
+<polygon points="300.0,260.0 456.0,156.0 500.0,156.0 344.0,260.0" fill="#30B4A4"/>
+<polygon points="344.0,260.0 500.0,156.0 500.0,336.0 344.0,440.0" fill="#217D72"/>
+<rect x="300.0" y="260.0" width="44.0" height="180.0" rx="0" fill="#2A9D8F"/>
+<polygon points="300.0,190.0 342.0,162.0 512.0,162.0 470.0,190.0" fill="#E58742" opacity="0.92"/>
+<polygon points="470.0,190.0 512.0,162.0 512.0,372.0 470.0,400.0" fill="#A05E2E" opacity="0.92"/>
+<rect x="300.0" y="190.0" width="170.0" height="210.0" rx="0" fill="#C8763A" opacity="0.92"/>
+<polygon points="300.0,260.0 360.0,220.0 404.0,220.0 344.0,260.0" fill="#30B4A4"/>
+<polygon points="344.0,260.0 404.0,220.0 404.0,400.0 344.0,440.0" fill="#217D72"/>
+<rect x="300.0" y="260.0" width="44.0" height="180.0" rx="0" fill="#2A9D8F"/>
+<line x1="285.0" y1="262.0" x2="285.0" y2="438.0" stroke="#14202E" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="278.0" y="355.0" font-size="15" fill="#14202E" text-anchor="end" font-weight="bold">H ≈ 50 nm</text>
+<line x1="300.0" y1="520.0" x2="344.0" y2="520.0" stroke="#14202E" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="322.0" y="545.0" font-size="15" fill="#14202E" text-anchor="middle" font-weight="bold">W ≈ 6 nm</text>
+<line x1="540.0" y1="230.0" x2="430.0" y2="250.0" stroke="#14202E" stroke-width="1.5"/>
+<text x="545.0" y="228.0" font-size="16" fill="#C8763A" text-anchor="start" font-weight="bold">gate</text>
+<line x1="540.0" y1="330.0" x2="345.0" y2="340.0" stroke="#14202E" stroke-width="1.5"/>
+<text x="545.0" y="328.0" font-size="16" fill="#2A9D8F" text-anchor="start" font-weight="bold">fin</text>
+<text x="545.0" y="348.0" font-size="14" fill="#2A9D8F" text-anchor="start">(channel)</text>
+<text x="355.0" y="585.0" font-size="18" fill="#14202E" text-anchor="middle" font-weight="bold">Width per fin = 2·H + W = 2·50 + 6 = 106 nm</text>
+<text x="355.0" y="607.0" font-size="15" fill="#5B7083" text-anchor="middle" font-style="italic">Only whole fins: 1, 2, 3... (drive comes in steps)</text>
+<rect x="710.0" y="90.0" width="670.0" height="530.0" rx="18" fill="#DDF1EE"/>
+<text x="1045.0" y="128.0" font-size="23" fill="#0B1F33" text-anchor="middle" font-weight="bold">Nanosheet: gate wraps every side</text>
+<polygon points="770.0,450.0 878.0,378.0 1298.0,378.0 1190.0,450.0" fill="#688096"/>
+<polygon points="1190.0,450.0 1298.0,378.0 1298.0,418.0 1190.0,490.0" fill="#485968"/>
+<rect x="770.0" y="450.0" width="420.0" height="40.0" rx="0" fill="#5B7083"/>
+<polygon points="880.0,300.0 1036.0,196.0 1186.0,196.0 1030.0,300.0" fill="#30B4A4"/>
+<polygon points="1030.0,300.0 1186.0,196.0 1186.0,218.0 1030.0,322.0" fill="#217D72"/>
+<rect x="880.0" y="300.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<polygon points="880.0,350.0 1036.0,246.0 1186.0,246.0 1030.0,350.0" fill="#30B4A4"/>
+<polygon points="1030.0,350.0 1186.0,246.0 1186.0,268.0 1030.0,372.0" fill="#217D72"/>
+<rect x="880.0" y="350.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<polygon points="880.0,400.0 1036.0,296.0 1186.0,296.0 1030.0,400.0" fill="#30B4A4"/>
+<polygon points="1030.0,400.0 1186.0,296.0 1186.0,318.0 1030.0,422.0" fill="#217D72"/>
+<rect x="880.0" y="400.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<polygon points="910.0,210.0 952.0,182.0 1162.0,182.0 1120.0,210.0" fill="#E58742" opacity="0.92"/>
+<polygon points="1120.0,210.0 1162.0,182.0 1162.0,382.0 1120.0,410.0" fill="#A05E2E" opacity="0.92"/>
+<rect x="910.0" y="210.0" width="210.0" height="200.0" rx="0" fill="#C8763A" opacity="0.92"/>
+<polygon points="880.0,300.0 940.0,260.0 1090.0,260.0 1030.0,300.0" fill="#30B4A4"/>
+<polygon points="1030.0,300.0 1090.0,260.0 1090.0,282.0 1030.0,322.0" fill="#217D72"/>
+<rect x="880.0" y="300.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<polygon points="880.0,350.0 940.0,310.0 1090.0,310.0 1030.0,350.0" fill="#30B4A4"/>
+<polygon points="1030.0,350.0 1090.0,310.0 1090.0,332.0 1030.0,372.0" fill="#217D72"/>
+<rect x="880.0" y="350.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<polygon points="880.0,400.0 940.0,360.0 1090.0,360.0 1030.0,400.0" fill="#30B4A4"/>
+<polygon points="1030.0,400.0 1090.0,360.0 1090.0,382.0 1030.0,422.0" fill="#217D72"/>
+<rect x="880.0" y="400.0" width="150.0" height="22.0" rx="0" fill="#2A9D8F"/>
+<line x1="880.0" y1="520.0" x2="1030.0" y2="520.0" stroke="#14202E" stroke-width="2" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="955.0" y="545.0" font-size="15" fill="#14202E" text-anchor="middle" font-weight="bold">sheet width ≈ 30 nm (designer can choose)</text>
+<line x1="1045.0" y1="300.0" x2="1045.0" y2="322.0" stroke="#14202E" stroke-width="2"/>
+<line x1="1040.0" y1="311.0" x2="1110.0" y2="280.0" stroke="#14202E" stroke-width="1.5"/>
+<text x="1115.0" y="280.0" font-size="15" fill="#14202E" text-anchor="start" font-weight="bold">≈ 5 nm thick</text>
+<text x="1045.0" y="585.0" font-size="18" fill="#14202E" text-anchor="middle" font-weight="bold">Width = 3 × 2·(30 + 5) = 210 nm</text>
+<text x="1045.0" y="607.0" font-size="15" fill="#5B7083" text-anchor="middle" font-style="italic">Similar width to 2 fins, but better control + any width</text>
+</svg>

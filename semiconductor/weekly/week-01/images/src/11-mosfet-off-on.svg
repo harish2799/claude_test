@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="640" fill="#FFFFFF"/>
+<text x="700.0" y="42.0" font-size="28" fill="#0B1F33" text-anchor="middle" font-weight="bold">Inside a real transistor (MOSFET), cut open from the side</text>
+<text x="700.0" y="74.0" font-size="19" fill="#5B7083" text-anchor="middle">Threshold voltage (Vt) ≈ 0.25–0.35 V: the gate voltage at which the channel appears</text>
+<rect x="30.0" y="90.0" width="650.0" height="530.0" rx="18" fill="#EEF2F6"/>
+<text x="355.0" y="132.0" font-size="26" fill="#0B1F33" text-anchor="middle" font-weight="bold">OFF: gate at 0 V</text>
+<rect x="60.0" y="330.0" width="590.0" height="230.0" rx="0" fill="#E4DCEB"/>
+<text x="355.0" y="550.0" font-size="16" fill="#5B7083" text-anchor="middle">p-type silicon body (almost no free electrons)</text>
+<rect x="60.0" y="330.0" width="170.0" height="95.0" rx="10" fill="#8FB8DE"/>
+<circle cx="79.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="79.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="79.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="98.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="98.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="98.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="116.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="116.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="116.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="135.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="135.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="135.6" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="154.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="154.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="154.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="173.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="173.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="173.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="191.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="191.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="191.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="210.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="210.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="210.6" cy="398.3" r="4" fill="#0B1F33"/>
+<rect x="480.0" y="330.0" width="170.0" height="95.0" rx="10" fill="#8FB8DE"/>
+<circle cx="499.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="499.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="499.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="518.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="518.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="518.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="536.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="536.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="536.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="555.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="555.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="555.6" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="574.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="574.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="574.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="593.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="593.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="593.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="611.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="611.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="611.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="630.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="630.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="630.6" cy="398.3" r="4" fill="#0B1F33"/>
+<text x="145.0" y="450.0" font-size="17" fill="#0B1F33" text-anchor="middle" font-weight="bold">n+ source</text>
+<text x="145.0" y="470.0" font-size="14" fill="#5B7083" text-anchor="middle">(full of free electrons)</text>
+<text x="565.0" y="450.0" font-size="17" fill="#0B1F33" text-anchor="middle" font-weight="bold">n+ drain</text>
+<rect x="230.0" y="318.0" width="250.0" height="12.0" rx="0" fill="#B9C3CC"/>
+<rect x="230.0" y="250.0" width="250.0" height="68.0" rx="4" fill="#C8763A"/>
+<text x="355.0" y="292.0" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="bold">GATE</text>
+<line x1="245.0" y1="323.0" x2="225.0" y2="290.0" stroke="#14202E" stroke-width="1.5"/>
+<text x="220.0" y="285.0" font-size="14" fill="#14202E" text-anchor="end">oxide ~1 nm</text>
+<line x1="120.0" y1="330.0" x2="120.0" y2="205.0" stroke="#14202E" stroke-width="3"/>
+<text x="120.0" y="195.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Source 0 V</text>
+<line x1="355.0" y1="250.0" x2="355.0" y2="180.0" stroke="#14202E" stroke-width="3"/>
+<text x="355.0" y="170.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Gate 0 V</text>
+<line x1="590.0" y1="330.0" x2="590.0" y2="205.0" stroke="#14202E" stroke-width="3"/>
+<text x="590.0" y="195.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Drain +0.7 V</text>
+<text x="355.0" y="380.0" font-size="18" fill="#B23A48" text-anchor="middle" font-weight="bold">no channel</text>
+<text x="355.0" y="505.0" font-size="17" fill="#14202E" text-anchor="middle">The p-type region blocks electrons</text>
+<text x="355.0" y="602.0" font-size="20" fill="#B23A48" text-anchor="middle" font-weight="bold">No path: switch OFF (0)</text>
+<rect x="720.0" y="90.0" width="650.0" height="530.0" rx="18" fill="#DDF1EE"/>
+<text x="1045.0" y="132.0" font-size="26" fill="#0B1F33" text-anchor="middle" font-weight="bold">ON: gate at +0.7 V</text>
+<rect x="750.0" y="330.0" width="590.0" height="230.0" rx="0" fill="#E4DCEB"/>
+<text x="1045.0" y="550.0" font-size="16" fill="#5B7083" text-anchor="middle">p-type silicon body (almost no free electrons)</text>
+<rect x="750.0" y="330.0" width="170.0" height="95.0" rx="10" fill="#8FB8DE"/>
+<circle cx="769.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="769.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="769.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="788.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="788.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="788.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="806.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="806.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="806.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="825.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="825.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="825.6" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="844.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="844.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="844.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="863.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="863.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="863.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="881.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="881.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="881.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="900.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="900.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="900.6" cy="398.3" r="4" fill="#0B1F33"/>
+<rect x="1170.0" y="330.0" width="170.0" height="95.0" rx="10" fill="#8FB8DE"/>
+<circle cx="1189.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1189.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1189.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1208.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1208.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1208.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1226.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1226.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1226.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1245.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1245.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1245.6" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1264.4" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1264.4" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1264.4" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1283.1" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1283.1" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1283.1" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1301.9" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1301.9" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1301.9" cy="398.3" r="4" fill="#0B1F33"/>
+<circle cx="1320.6" cy="351.7" r="4" fill="#0B1F33"/>
+<circle cx="1320.6" cy="375.0" r="4" fill="#0B1F33"/>
+<circle cx="1320.6" cy="398.3" r="4" fill="#0B1F33"/>
+<text x="835.0" y="450.0" font-size="17" fill="#0B1F33" text-anchor="middle" font-weight="bold">n+ source</text>
+<text x="835.0" y="470.0" font-size="14" fill="#5B7083" text-anchor="middle">(full of free electrons)</text>
+<text x="1255.0" y="450.0" font-size="17" fill="#0B1F33" text-anchor="middle" font-weight="bold">n+ drain</text>
+<rect x="920.0" y="318.0" width="250.0" height="12.0" rx="0" fill="#B9C3CC"/>
+<rect x="920.0" y="250.0" width="250.0" height="68.0" rx="4" fill="#C8763A"/>
+<text x="1045.0" y="292.0" font-size="22" fill="#FFFFFF" text-anchor="middle" font-weight="bold">GATE</text>
+<line x1="935.0" y1="323.0" x2="915.0" y2="290.0" stroke="#14202E" stroke-width="1.5"/>
+<text x="910.0" y="285.0" font-size="14" fill="#14202E" text-anchor="end">oxide ~1 nm</text>
+<line x1="810.0" y1="330.0" x2="810.0" y2="205.0" stroke="#14202E" stroke-width="3"/>
+<text x="810.0" y="195.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Source 0 V</text>
+<line x1="1045.0" y1="250.0" x2="1045.0" y2="180.0" stroke="#14202E" stroke-width="3"/>
+<text x="1045.0" y="170.0" font-size="17" fill="#C8763A" text-anchor="middle" font-weight="bold">Gate +0.7 V</text>
+<line x1="1280.0" y1="330.0" x2="1280.0" y2="205.0" stroke="#14202E" stroke-width="3"/>
+<text x="1280.0" y="195.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Drain +0.7 V</text>
+<rect x="920.0" y="330.0" width="250.0" height="16.0" rx="0" fill="#2E86C1"/>
+<circle cx="933.6" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="950.7" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="967.9" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="985.0" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1002.1" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1019.3" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1036.4" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1053.6" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1070.7" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1087.9" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1105.0" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1122.1" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1139.3" cy="338.0" r="3" fill="#FFFFFF"/>
+<circle cx="1156.4" cy="338.0" r="3" fill="#FFFFFF"/>
+<line x1="950.0" y1="375.0" x2="1140.0" y2="375.0" stroke="#2E86C1" stroke-width="4" marker-end="url(#ah)"/>
+<text x="1045.0" y="400.0" font-size="16" fill="#2E86C1" text-anchor="middle" font-weight="bold">electrons flow →</text>
+<text x="1045.0" y="500.0" font-size="17" fill="#14202E" text-anchor="middle">Gate voltage pulls electrons to the surface:</text>
+<text x="1045.0" y="522.0" font-size="17" fill="#14202E" text-anchor="middle">a ~1–2 nm thin channel connects source and drain</text>
+<text x="1045.0" y="602.0" font-size="20" fill="#2A9D8F" text-anchor="middle" font-weight="bold">Channel formed: switch ON (1)</text>
+</svg>

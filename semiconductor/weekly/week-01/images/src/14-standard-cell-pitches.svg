@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 630" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="630" fill="#FFFFFF"/>
+<text x="700.0" y="40.0" font-size="28" fill="#0B1F33" text-anchor="middle" font-weight="bold">Measuring a node: a standard cell seen from above</text>
+<text x="700.0" y="70.0" font-size="18" fill="#5B7083" text-anchor="middle">Chips are built from 'standard cells' (small Lego bricks for logic). Their size is set by two pitches.</text>
+<rect x="30.0" y="90.0" width="650.0" height="520.0" rx="18" fill="#EEF2F6"/>
+<text x="355.0" y="128.0" font-size="22" fill="#0B1F33" text-anchor="middle" font-weight="bold">Transistor layer: fins + gates</text>
+<rect x="60.0" y="220.0" width="590.0" height="16.0" rx="3" fill="#2A9D8F"/>
+<rect x="60.0" y="255.0" width="590.0" height="16.0" rx="3" fill="#2A9D8F"/>
+<rect x="60.0" y="430.0" width="590.0" height="16.0" rx="3" fill="#2A9D8F"/>
+<rect x="60.0" y="465.0" width="590.0" height="16.0" rx="3" fill="#2A9D8F"/>
+<rect x="120.0" y="175.0" width="26.0" height="350.0" rx="3" fill="#C8763A"/>
+<rect x="230.0" y="175.0" width="26.0" height="350.0" rx="3" fill="#C8763A"/>
+<rect x="340.0" y="175.0" width="26.0" height="350.0" rx="3" fill="#C8763A"/>
+<rect x="450.0" y="175.0" width="26.0" height="350.0" rx="3" fill="#C8763A"/>
+<rect x="560.0" y="175.0" width="26.0" height="350.0" rx="3" fill="#C8763A"/>
+<line x1="133.0" y1="160.0" x2="243.0" y2="160.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="188.0" y="150.0" font-size="16" fill="#14202E" text-anchor="start" font-weight="bold">CPP (gate pitch) ≈ 48 nm</text>
+<text x="408.0" y="320.0" font-size="15" fill="#2A9D8F" text-anchor="middle" font-weight="bold">pMOS</text>
+<text x="408.0" y="410.0" font-size="15" fill="#2A9D8F" text-anchor="middle" font-weight="bold">nMOS</text>
+<text x="355.0" y="560.0" font-size="16" fill="#14202E" text-anchor="middle">Copper = gates (switch controls)   Teal = fins (channels)</text>
+<text x="355.0" y="588.0" font-size="15" fill="#5B7083" text-anchor="middle" font-style="italic">Fewer fins per transistor = smaller cell (fin depopulation)</text>
+<rect x="720.0" y="90.0" width="650.0" height="520.0" rx="18" fill="#EEF2F6"/>
+<text x="1045.0" y="128.0" font-size="22" fill="#0B1F33" text-anchor="middle" font-weight="bold">First metal layer above it</text>
+<rect x="830.0" y="140.0" width="480.0" height="30.0" rx="3" fill="#0B1F33"/>
+<text x="1070.0" y="161.0" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="bold">VDD power rail</text>
+<rect x="830.0" y="202.0" width="480.0" height="22.0" rx="3" fill="#8FB8DE"/>
+<rect x="830.0" y="260.0" width="480.0" height="22.0" rx="3" fill="#8FB8DE"/>
+<rect x="830.0" y="318.0" width="480.0" height="22.0" rx="3" fill="#8FB8DE"/>
+<rect x="830.0" y="376.0" width="480.0" height="22.0" rx="3" fill="#8FB8DE"/>
+<rect x="830.0" y="434.0" width="480.0" height="22.0" rx="3" fill="#8FB8DE"/>
+<rect x="830.0" y="488.0" width="480.0" height="30.0" rx="3" fill="#0B1F33"/>
+<text x="1070.0" y="509.0" font-size="15" fill="#FFFFFF" text-anchor="middle" font-weight="bold">VSS (ground) rail</text>
+<line x1="1330.0" y1="213.0" x2="1330.0" y2="271.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="1338.0" y="248.0" font-size="15" fill="#14202E" text-anchor="start" font-weight="bold">MMP</text>
+<text x="1338.0" y="266.0" font-size="13" fill="#14202E" text-anchor="start">≈23nm</text>
+<line x1="805.0" y1="155.0" x2="805.0" y2="503.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="790" y="329" font-size="16" fill="#14202E" font-weight="bold" text-anchor="middle" transform="rotate(-90 790 329)">cell height = 6 tracks</text>
+<text x="1045.0" y="560.0" font-size="17" fill="#14202E" text-anchor="middle" font-weight="bold">Cell height = tracks × MMP = 6 × 23 ≈ 138 nm</text>
+<text x="1045.0" y="588.0" font-size="15" fill="#5B7083" text-anchor="middle" font-style="italic">Light blue = wiring tracks for signals</text>
+</svg>

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="640" fill="#FFFFFF"/>
+<text x="700.0" y="42.0" font-size="27" fill="#0B1F33" text-anchor="middle" font-weight="bold">Why short switches leak: think of electrons as water held back by a dam</text>
+<rect x="30.0" y="70.0" width="650.0" height="540.0" rx="18" fill="#EEF2F6"/>
+<text x="355.0" y="112.0" font-size="23" fill="#0B1F33" text-anchor="middle" font-weight="bold">Long channel: the gate holds the dam</text>
+<path d="M80,380 L230,380 C290,380 290,230 355,230 C420,230 420,470 480,470 L630,470 L630,560 L80,560 Z" fill="#E4DCEB"/>
+<path d="M80,380 L230,380 C290,380 290,230 355,230 C420,230 420,470 480,470 L630,470" fill="none" stroke="#0B1F33" stroke-width="5"/>
+<rect x="80.0" y="340.0" width="160.0" height="40.0" rx="0" fill="#2E86C1" opacity="0.85"/>
+<circle cx="94.4" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="94.4" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="113.1" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="113.1" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="131.9" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="131.9" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="150.6" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="150.6" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="169.4" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="169.4" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="188.1" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="188.1" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="206.9" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="206.9" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="225.6" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="225.6" cy="367.5" r="4" fill="#FFFFFF"/>
+<text x="155.0" y="410.0" font-size="19" fill="#0B1F33" text-anchor="middle" font-weight="bold">Source</text>
+<text x="155.0" y="432.0" font-size="15" fill="#5B7083" text-anchor="middle">electrons waiting</text>
+<text x="550.0" y="500.0" font-size="19" fill="#0B1F33" text-anchor="middle" font-weight="bold">Drain</text>
+<text x="550.0" y="522.0" font-size="14" fill="#5B7083" text-anchor="middle">(lower = higher voltage)</text>
+<line x1="60.0" y1="560.0" x2="60.0" y2="160.0" stroke="#14202E" stroke-width="2" marker-end="url(#ah)"/>
+<text x="50" y="360" font-size="15" fill="#14202E" text-anchor="middle" transform="rotate(-90 50 360)">electron energy</text>
+<text x="355.0" y="210.0" font-size="17" fill="#C8763A" text-anchor="middle" font-weight="bold">barrier height set by the gate</text>
+<text x="355.0" y="590.0" font-size="17" fill="#14202E" text-anchor="middle">Gate is in charge: no water spills when OFF</text>
+<rect x="720.0" y="70.0" width="650.0" height="540.0" rx="18" fill="#F6E7DA"/>
+<text x="1045.0" y="112.0" font-size="23" fill="#0B1F33" text-anchor="middle" font-weight="bold">Short channel: the drain lowers the dam</text>
+<path d="M770,380 L960,380 C1000,380 1010,320 1040,320 C1070,320 1080,470 1120,470 L1320,470 L1320,560 L770,560 Z" fill="#E4DCEB"/>
+<path d="M770,380 L960,380 C1000,380 1010,320 1040,320 C1070,320 1080,470 1120,470 L1320,470" fill="none" stroke="#0B1F33" stroke-width="5"/>
+<rect x="770.0" y="340.0" width="190.0" height="40.0" rx="0" fill="#2E86C1" opacity="0.85"/>
+<circle cx="784.4" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="784.4" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="803.1" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="803.1" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="821.9" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="821.9" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="840.6" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="840.6" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="859.4" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="859.4" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="878.1" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="878.1" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="896.9" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="896.9" cy="367.5" r="4" fill="#FFFFFF"/>
+<circle cx="915.6" cy="352.5" r="4" fill="#FFFFFF"/>
+<circle cx="915.6" cy="367.5" r="4" fill="#FFFFFF"/>
+<text x="845.0" y="410.0" font-size="19" fill="#0B1F33" text-anchor="middle" font-weight="bold">Source</text>
+<text x="845.0" y="432.0" font-size="15" fill="#5B7083" text-anchor="middle">electrons waiting</text>
+<text x="1240.0" y="500.0" font-size="19" fill="#0B1F33" text-anchor="middle" font-weight="bold">Drain</text>
+<text x="1240.0" y="522.0" font-size="14" fill="#5B7083" text-anchor="middle">(lower = higher voltage)</text>
+<line x1="750.0" y1="560.0" x2="750.0" y2="160.0" stroke="#14202E" stroke-width="2" marker-end="url(#ah)"/>
+<text x="740" y="360" font-size="15" fill="#14202E" text-anchor="middle" transform="rotate(-90 740 360)">electron energy</text>
+<path d="M1005,300 q-7,12 0,17 q7,-5 0,-17 z" fill="#2E86C1"/>
+<path d="M1032,290 q-7,12 0,17 q7,-5 0,-17 z" fill="#2E86C1"/>
+<path d="M1062,330 q-7,12 0,17 q7,-5 0,-17 z" fill="#2E86C1"/>
+<path d="M1090,400 q-7,12 0,17 q7,-5 0,-17 z" fill="#2E86C1"/>
+<text x="1045.0" y="270.0" font-size="17" fill="#B23A48" text-anchor="middle" font-weight="bold">barrier lower + thinner</text>
+<line x1="1240.0" y1="450.0" x2="1100.0" y2="360.0" stroke="#B23A48" stroke-width="3" marker-end="url(#ahc)"/>
+<text x="1250.0" y="300.0" font-size="16" fill="#B23A48" text-anchor="middle" font-weight="bold">drain voltage pulls</text>
+<text x="1250.0" y="320.0" font-size="16" fill="#B23A48" text-anchor="middle" font-weight="bold">the dam down (DIBL)</text>
+<text x="1045.0" y="590.0" font-size="17" fill="#14202E" text-anchor="middle">Electrons spill over even when the gate says OFF = leakage</text>
+</svg>

@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 730" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="730" fill="#FFFFFF"/>
+<text x="700.0" y="34.0" font-size="25" fill="#0B1F33" text-anchor="middle" font-weight="bold">Building a nanosheet transistor: the 8 main steps (side view, current flows left → right)</text>
+<rect x="330.0" y="50.0" width="20.0" height="16.0" rx="0" fill="#2A9D8F"/>
+<text x="356.0" y="64.0" font-size="14" fill="#14202E" text-anchor="start">Si (channel)</text>
+<rect x="466.8" y="50.0" width="20.0" height="16.0" rx="0" fill="#E9C46A"/>
+<text x="492.8" y="64.0" font-size="14" fill="#14202E" text-anchor="start">SiGe (temporary)</text>
+<rect x="633.2" y="50.0" width="20.0" height="16.0" rx="0" fill="#9AA6B2"/>
+<text x="659.2" y="64.0" font-size="14" fill="#14202E" text-anchor="start">dummy gate</text>
+<rect x="755.2" y="50.0" width="20.0" height="16.0" rx="0" fill="#C9D1D9"/>
+<text x="781.2" y="64.0" font-size="14" fill="#14202E" text-anchor="start">spacer</text>
+<rect x="847.6" y="50.0" width="20.0" height="16.0" rx="0" fill="#2E86C1"/>
+<text x="873.6" y="64.0" font-size="14" fill="#14202E" text-anchor="start">source/drain</text>
+<rect x="984.4" y="50.0" width="20.0" height="16.0" rx="0" fill="#C8763A"/>
+<text x="1010.4" y="64.0" font-size="14" fill="#14202E" text-anchor="start">real gate</text>
+<rect x="1099.0" y="50.0" width="20.0" height="16.0" rx="0" fill="#0B1F33"/>
+<text x="1125.0" y="64.0" font-size="14" fill="#14202E" text-anchor="start">contact</text>
+<rect x="20.0" y="85.0" width="330.0" height="305.0" rx="14" fill="#EEF2F6"/>
+<text x="35.0" y="117.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">1. Grow layer cake</text>
+<rect x="35.0" y="305.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="35.0" y="291.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="35.0" y="277.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="35.0" y="263.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="35.0" y="249.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="35.0" y="235.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="35.0" y="221.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<text x="185.0" y="353.0" font-size="15" fill="#14202E" text-anchor="middle">Si and SiGe layers,</text>
+<text x="185.0" y="373.0" font-size="15" fill="#14202E" text-anchor="middle">each a few nm thick</text>
+<rect x="365.0" y="85.0" width="330.0" height="305.0" rx="14" fill="#EEF2F6"/>
+<text x="380.0" y="117.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">2. Dummy gate + spacers</text>
+<rect x="380.0" y="305.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="380.0" y="291.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="380.0" y="277.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="380.0" y="263.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="380.0" y="249.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="380.0" y="235.0" width="300.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="380.0" y="221.0" width="300.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="490.0" y="155.0" width="80.0" height="66.0" rx="0" fill="#9AA6B2"/>
+<text x="530.0" y="193.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">dummy</text>
+<rect x="480.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="570.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<text x="530.0" y="353.0" font-size="15" fill="#14202E" text-anchor="middle">a placeholder 'gate' marks</text>
+<text x="530.0" y="373.0" font-size="15" fill="#14202E" text-anchor="middle">where the real one goes</text>
+<rect x="710.0" y="85.0" width="330.0" height="305.0" rx="14" fill="#EEF2F6"/>
+<text x="725.0" y="117.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">3. Cut away the sides</text>
+<rect x="725.0" y="305.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="825.0" y="291.0" width="100.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="825.0" y="277.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="263.0" width="100.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="825.0" y="249.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="235.0" width="100.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="825.0" y="221.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="835.0" y="155.0" width="80.0" height="66.0" rx="0" fill="#9AA6B2"/>
+<text x="875.0" y="193.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">dummy</text>
+<rect x="825.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<text x="875.0" y="353.0" font-size="15" fill="#14202E" text-anchor="middle">etch the stack away except</text>
+<text x="875.0" y="373.0" font-size="15" fill="#14202E" text-anchor="middle">under the dummy gate</text>
+<rect x="1055.0" y="85.0" width="330.0" height="305.0" rx="14" fill="#F6E7DA" stroke="#C8763A" stroke-width="2"/>
+<text x="1070.0" y="117.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">4. Inner spacers</text>
+<rect x="1310.0" y="99.0" width="62.0" height="24.0" rx="12" fill="#C8763A"/>
+<text x="1341.0" y="116.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">HARD</text>
+<rect x="1070.0" y="305.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="1180.0" y="291.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="1170.0" y="291.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="291.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="277.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1180.0" y="263.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="1170.0" y="263.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="263.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="249.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1180.0" y="235.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="1170.0" y="235.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="235.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="221.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1180.0" y="155.0" width="80.0" height="66.0" rx="0" fill="#9AA6B2"/>
+<text x="1220.0" y="193.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">dummy</text>
+<rect x="1170.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="155.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<text x="1220.0" y="353.0" font-size="15" fill="#14202E" text-anchor="middle">notch SiGe ends, fill with</text>
+<text x="1220.0" y="373.0" font-size="15" fill="#14202E" text-anchor="middle">insulator (nm precision)</text>
+<rect x="20.0" y="405.0" width="330.0" height="305.0" rx="14" fill="#EEF2F6"/>
+<text x="35.0" y="437.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">5. Grow source &amp; drain</text>
+<rect x="35.0" y="625.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="145.0" y="611.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="135.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="225.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="135.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="145.0" y="583.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="135.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="225.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="135.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="145.0" y="555.0" width="80.0" height="14.0" rx="0" fill="#E9C46A"/>
+<rect x="135.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="225.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="135.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="145.0" y="475.0" width="80.0" height="66.0" rx="0" fill="#9AA6B2"/>
+<text x="185.0" y="513.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">dummy</text>
+<rect x="135.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="225.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="55.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<rect x="235.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<text x="95.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">S</text>
+<text x="275.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D</text>
+<text x="185.0" y="673.0" font-size="15" fill="#14202E" text-anchor="middle">crystal grows out from</text>
+<text x="185.0" y="693.0" font-size="15" fill="#14202E" text-anchor="middle">the sheet edges</text>
+<rect x="365.0" y="405.0" width="330.0" height="305.0" rx="14" fill="#F6E7DA" stroke="#C8763A" stroke-width="2"/>
+<text x="380.0" y="437.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">6. Remove dummy + SiGe</text>
+<rect x="620.0" y="419.0" width="62.0" height="24.0" rx="12" fill="#C8763A"/>
+<text x="651.0" y="436.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">HARD</text>
+<rect x="380.0" y="625.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="480.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="570.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="480.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="480.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="570.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="480.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="480.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="570.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="480.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="480.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="570.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="400.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<rect x="580.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<text x="440.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">S</text>
+<text x="620.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D</text>
+<rect x="490.0" y="475.0" width="80.0" height="66.0" rx="0" fill="#FFFFFF" stroke="#5B7083" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="530.0" y="513.0" font-size="13" fill="#5B7083" text-anchor="middle">empty</text>
+<text x="530.0" y="673.0" font-size="15" fill="#14202E" text-anchor="middle">selective etch eats SiGe:</text>
+<text x="530.0" y="693.0" font-size="15" fill="#14202E" text-anchor="middle">sheets now float</text>
+<rect x="710.0" y="405.0" width="330.0" height="305.0" rx="14" fill="#F6E7DA" stroke="#C8763A" stroke-width="2"/>
+<text x="725.0" y="437.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">7. Fill real gate</text>
+<rect x="965.0" y="419.0" width="62.0" height="24.0" rx="12" fill="#C8763A"/>
+<text x="996.0" y="436.0" font-size="13" fill="#FFFFFF" text-anchor="middle" font-weight="bold">HARD</text>
+<rect x="725.0" y="625.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="825.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="825.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="825.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="825.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="745.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<rect x="925.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<text x="785.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">S</text>
+<text x="965.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D</text>
+<rect x="835.0" y="475.0" width="80.0" height="150.0" rx="0" fill="#C8763A"/>
+<rect x="825.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="825.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="915.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<text x="875.0" y="673.0" font-size="15" fill="#14202E" text-anchor="middle">high-k + metal coat every</text>
+<text x="875.0" y="693.0" font-size="15" fill="#14202E" text-anchor="middle">sheet, atom layer by layer</text>
+<rect x="1055.0" y="405.0" width="330.0" height="305.0" rx="14" fill="#EEF2F6"/>
+<text x="1070.0" y="437.0" font-size="18" fill="#0B1F33" text-anchor="start" font-weight="bold">8. Add contacts</text>
+<rect x="1070.0" y="625.0" width="300.0" height="30.0" rx="0" fill="#5B7083"/>
+<rect x="1170.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="611.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="583.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="555.0" width="10.0" height="14.0" rx="0" fill="#C9D1D9"/>
+<rect x="1170.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="1090.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<rect x="1270.0" y="531.0" width="80.0" height="94.0" rx="6" fill="#2E86C1"/>
+<text x="1130.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">S</text>
+<text x="1310.0" y="583.0" font-size="18" fill="#FFFFFF" text-anchor="middle" font-weight="bold">D</text>
+<rect x="1180.0" y="475.0" width="80.0" height="150.0" rx="0" fill="#C8763A"/>
+<rect x="1170.0" y="597.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="569.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="541.0" width="100.0" height="14.0" rx="0" fill="#2A9D8F"/>
+<rect x="1170.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="1260.0" y="475.0" width="10.0" height="66.0" rx="0" fill="#C9D1D9"/>
+<rect x="1110.0" y="475.0" width="40.0" height="56.0" rx="0" fill="#0B1F33"/>
+<rect x="1290.0" y="475.0" width="40.0" height="56.0" rx="0" fill="#0B1F33"/>
+<rect x="1205.0" y="457.0" width="30.0" height="18.0" rx="0" fill="#0B1F33"/>
+<text x="1220.0" y="673.0" font-size="15" fill="#14202E" text-anchor="middle">metal plugs connect</text>
+<text x="1220.0" y="693.0" font-size="15" fill="#14202E" text-anchor="middle">S, D and gate to wires</text>
+</svg>

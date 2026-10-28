@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 610" font-family="Liberation Sans, Arial, sans-serif">
+<defs><marker id="ah" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#14202E"/></marker><marker id="ahc" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto-start-reverse"><path d="M0,0 L14,7 L0,14 z" fill="#B23A48"/></marker></defs>
+<rect width="1400" height="610" fill="#FFFFFF"/>
+<text x="700.0" y="40.0" font-size="27" fill="#0B1F33" text-anchor="middle" font-weight="bold">What comes after nanosheets: squeezing n and p transistors closer</text>
+<text x="700.0" y="70.0" font-size="18" fill="#5B7083" text-anchor="middle">Every logic gate needs an n-type and a p-type transistor. Seen end-on:</text>
+<rect x="20.0" y="90.0" width="440.0" height="470.0" rx="18" fill="#EEF2F6"/>
+<text x="240.0" y="128.0" font-size="21" fill="#0B1F33" text-anchor="middle" font-weight="bold">Nanosheet (today, 2nm)</text>
+<text x="240.0" y="154.0" font-size="15" fill="#5B7083" text-anchor="middle">n and p side by side, gap between</text>
+<rect x="60.0" y="430.0" width="360.0" height="26.0" rx="0" fill="#5B7083"/>
+<rect x="90.0" y="288.0" width="120.0" height="108.0" rx="8" fill="#C8763A"/>
+<rect x="100.0" y="300.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<rect x="100.0" y="334.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<rect x="100.0" y="368.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<text x="150.0" y="280.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold">n-type</text>
+<rect x="270.0" y="288.0" width="120.0" height="108.0" rx="8" fill="#C8763A"/>
+<rect x="280.0" y="300.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<rect x="280.0" y="334.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<rect x="280.0" y="368.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<text x="330.0" y="280.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold">p-type</text>
+<line x1="90.0" y1="480.0" x2="390.0" y2="480.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="240.0" y="510.0" font-size="15" fill="#14202E" text-anchor="middle" font-weight="bold">footprint</text>
+<text x="240.0" y="532.0" font-size="17" fill="#C8763A" text-anchor="middle" font-weight="bold">100%</text>
+<rect x="480.0" y="90.0" width="440.0" height="470.0" rx="18" fill="#EEF2F6"/>
+<text x="700.0" y="128.0" font-size="21" fill="#0B1F33" text-anchor="middle" font-weight="bold">Forksheet (proposed next)</text>
+<text x="700.0" y="154.0" font-size="15" fill="#5B7083" text-anchor="middle">insulating wall lets them sit closer</text>
+<rect x="520.0" y="430.0" width="360.0" height="26.0" rx="0" fill="#5B7083"/>
+<rect x="578.0" y="288.0" width="120.0" height="108.0" rx="8" fill="#C8763A"/>
+<rect x="588.0" y="300.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<rect x="588.0" y="334.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<rect x="588.0" y="368.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<text x="638.0" y="280.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold">n-type</text>
+<rect x="702.0" y="288.0" width="120.0" height="108.0" rx="8" fill="#C8763A"/>
+<rect x="712.0" y="300.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<rect x="712.0" y="334.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<rect x="712.0" y="368.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<text x="762.0" y="280.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold">p-type</text>
+<rect x="694.0" y="278.0" width="12.0" height="130.0" rx="0" fill="#FFFFFF" stroke="#5B7083" stroke-width="2"/>
+<text x="700.0" y="272.0" font-size="13" fill="#5B7083" text-anchor="middle">wall</text>
+<line x1="585.0" y1="480.0" x2="815.0" y2="480.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="700.0" y="510.0" font-size="15" fill="#14202E" text-anchor="middle" font-weight="bold">footprint</text>
+<text x="700.0" y="532.0" font-size="17" fill="#C8763A" text-anchor="middle" font-weight="bold">~75%</text>
+<rect x="940.0" y="90.0" width="440.0" height="470.0" rx="18" fill="#DDF1EE"/>
+<text x="1160.0" y="128.0" font-size="21" fill="#0B1F33" text-anchor="middle" font-weight="bold">CFET (2030s research)</text>
+<text x="1160.0" y="154.0" font-size="15" fill="#5B7083" text-anchor="middle">p stacked on top of n</text>
+<rect x="980.0" y="430.0" width="360.0" height="26.0" rx="0" fill="#5B7083"/>
+<rect x="1100.0" y="318.0" width="120.0" height="74.0" rx="8" fill="#C8763A"/>
+<rect x="1110.0" y="330.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<rect x="1110.0" y="364.0" width="100.0" height="18.0" rx="3" fill="#2A9D8F"/>
+<text x="1160.0" y="310.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold"></text>
+<rect x="1100.0" y="213.0" width="120.0" height="74.0" rx="8" fill="#C8763A"/>
+<rect x="1110.0" y="225.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<rect x="1110.0" y="259.0" width="100.0" height="18.0" rx="3" fill="#8FB8DE"/>
+<text x="1160.0" y="205.0" font-size="15" fill="#0B1F33" text-anchor="middle" font-weight="bold"></text>
+<text x="1240.0" y="260.0" font-size="15" fill="#0B1F33" text-anchor="start" font-weight="bold">p-type</text>
+<text x="1240.0" y="360.0" font-size="15" fill="#0B1F33" text-anchor="start" font-weight="bold">n-type</text>
+<line x1="1090.0" y1="480.0" x2="1230.0" y2="480.0" stroke="#14202E" stroke-width="2.5" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<text x="1160.0" y="510.0" font-size="15" fill="#14202E" text-anchor="middle" font-weight="bold">footprint</text>
+<text x="1160.0" y="532.0" font-size="17" fill="#C8763A" text-anchor="middle" font-weight="bold">~50%</text>
+<text x="700.0" y="590.0" font-size="18" fill="#14202E" text-anchor="middle" font-weight="bold">Smaller footprint per logic gate = more logic per mm², even when pitches barely shrink</text>
+</svg>

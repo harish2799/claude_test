@@ -1,357 +1,363 @@
-// Week 1 deck: node names vs real dimensions, FinFET -> GAA, backside power.
-// Optional technical deep dive. Run: NODE_PATH=tools/node_modules node tools/build_week01_deepdive_slides.js
+// Week 1 deep dive: transistor physics, how nodes are measured, FinFET -> nanosheet,
+// how nanosheets are built, wiring and backside power, industry view.
+// Every technical term is explained in plain words on first use.
+// Run: NODE_PATH=tools/node_modules node tools/build_week01_deepdive_slides.js   (from semiconductor/)
+const fs = require("fs");
 const path = require("path");
-const { HEX, createDeck, text, badge, card, stat, bullets, arrow, wafer, writeDeck } = require("./deck_lib");
+const { HEX, createDeck, text, badge, card, stat, bullets, writeDeck } = require("./deck_lib");
 
-const OUT = path.join(__dirname, "..", "weekly", "week-01", "week-01-deep-dive-slides.pptx");
-const pres = createDeck({ title: "Week 1 deep dive — Node names, FinFET to GAA", week: 1 });
+const WEEK_DIR = path.join(__dirname, "..", "weekly", "week-01");
+const IMG = (f) => path.join(WEEK_DIR, "images", f);
+const OUT = path.join(WEEK_DIR, "week-01-deep-dive-slides.pptx");
+const pres = createDeck({ title: "Week 1 deep dive — Inside the transistor", week: 1 });
+
+const CHART_STYLE = {
+  dataLabelFontSize: 11, dataLabelColor: HEX.ink, dataLabelFontFace: "+mn-lt",
+  catAxisLabelColor: HEX.slate, catAxisLabelFontSize: 11, catAxisLabelFontFace: "+mn-lt",
+  valAxisLabelColor: HEX.slate, valAxisLabelFontSize: 10, valAxisLabelFontFace: "+mn-lt",
+  valGridLine: { color: HEX.line, size: 0.5 }, catGridLine: { style: "none" },
+};
+
+function pngSize(file) {
+  const b = fs.readFileSync(file);
+  return { w: b.readUInt32BE(16), h: b.readUInt32BE(20) };
+}
+
+function imageSlide(title, file, takeaway, notes) {
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText(title, { placeholder: "title" });
+  const { w, h } = pngSize(IMG(file));
+  const iw = Math.min(9.0, 3.6 * (w / h)), ih = iw * (h / w);
+  s.addImage({ path: IMG(file), x: (10 - iw) / 2, y: 1.1, w: iw, h: ih, altText: title });
+  text(s, takeaway, { x: 0.5, y: 4.78, w: 9, h: 0.4, fontSize: 15, bold: true, color: HEX.copper, align: "center", valign: "middle" });
+  s.addNotes(notes);
+}
+
+function section(title, sub, notes) {
+  const s = pres.addSlide({ masterName: "SECTION_DARK" });
+  s.addText(title, { placeholder: "title" });
+  s.addText(sub, { placeholder: "body" });
+  s.addNotes(notes);
+}
+
+function table(s, header, rows, opts) {
+  const head = header.map((t) => ({ text: t, options: { bold: true, color: HEX.paper, fill: { color: HEX.navy } } }));
+  const body = rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: j === 0, color: HEX.ink,
+    fill: { color: i % 2 ? HEX.paper : HEX.mist } } })));
+  s.addTable([head, ...body], { fontFace: "Calibri", fontSize: 13, valign: "middle", margin: 0.07,
+    border: { type: "solid", color: HEX.line, pt: 0.75 }, ...opts });
+}
 
 // ---------------------------------------------------------------- 1. Title
 {
   const s = pres.addSlide({ masterName: "TITLE_DARK" });
-  s.addText("Node names,\nFinFET → GAA", { placeholder: "title" });
-  s.addText("Week 1  ·  Why “3nm” isn’t 3 nm, how transistors wrapped the gate around the channel, and why power is moving to the back of the wafer",
+  s.addText("Week 1 deep dive:\ninside the transistor", { placeholder: "title" });
+  s.addText("Part 2 of week 1. The real physics, measurements and manufacturing behind “smaller chips”, with every term explained the first time it appears.",
     { placeholder: "body" });
-  wafer(s, 7.75, 2.8, 1.75);
-  s.addNotes("Welcome to week 1. Three ideas: node names are marketing, gate control drives transistor shape, and backside power is the next big structural change.");
+  const { w, h } = pngSize(IMG("15-finfet-vs-nanosheet-3d.png"));
+  s.addImage({ path: IMG("15-finfet-vs-nanosheet-3d.png"), x: 6.2, y: 1.5, w: 3.5, h: 3.5 * h / w, altText: "FinFET and nanosheet in 3D" });
+  s.addNotes("This is the deep dive for week 1. Read or watch the beginner deck first. Here we go one level deeper on each idea.");
 }
 
-// ---------------------------------------------------------------- 2. Roadmap
+// ---------------------------------------------------------------- 2. Map
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("What you’ll be able to explain", { placeholder: "title" });
-  const items = [
-    ["Node names", "Why “3nm” is a brand and which metrics are real"],
-    ["Gate control", "The electrostatics behind planar → FinFET → GAA"],
-    ["Nanosheet build", "The process steps, and which ones are hard"],
-    ["Backside power", "What moves under the wafer and what it changes"],
-    ["The 2nm race", "TSMC, Intel and Samsung, through career and investor eyes"],
+  s.addText("The six parts of this deep dive", { placeholder: "title" });
+  const parts = [
+    ["How a transistor really works", "Electrons, doping, the channel, threshold voltage"],
+    ["Why small transistors leak", "The I-V curve, 60 mV/decade, the 'dam' picture"],
+    ["How a node is measured", "Gate pitch, metal pitch, tracks, density, SRAM"],
+    ["FinFET → nanosheet", "3D shapes, effective width, the 8 build steps"],
+    ["Wiring and backside power", "Why wires are now the bottleneck"],
+    ["The industry view", "Who's racing, who sells the tools, which jobs grow"],
   ];
-  items.forEach(([t, b], i) => {
-    const y = 1.25 + i * 0.78;
-    badge(s, i + 1, 0.6, y, 0.48);
-    text(s, t, { x: 1.3, y: y - 0.02, w: 3.0, h: 0.5, fontSize: 18, bold: true, color: HEX.navy, valign: "middle" });
-    text(s, b, { x: 4.2, y: y - 0.02, w: 5.3, h: 0.5, fontSize: 15, valign: "middle" });
+  parts.forEach(([t, b], i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    card(s, { x: 0.5 + col * 4.6, y: 1.15 + row * 1.3, w: 4.4, h: 1.15, num: i + 1, title: t, body: b, titleSize: 15, bodySize: 13,
+      fill: col ? HEX.mist : HEX.tealTint });
   });
-  s.addNotes("Roadmap for the week. Each item maps to a section of the written lesson and the podcast episode.");
+  s.addNotes("Six parts. Each one has a diagram, the plain-words version, and the real numbers engineers use.");
 }
 
-// ---------------------------------------------------------------- 3. Brand not dimension
-{
-  const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("“3nm” is a product name, not a measurement", { placeholder: "title" });
-  stat(s, { x: 0.5, y: 1.2, w: 2.6, value: "3 nm", label: "What the node is called", color: HEX.slate });
-  stat(s, { x: 3.3, y: 1.2, w: 2.8, value: "~15–20 nm", label: "Typical gate length today", valueSize: 40 });
-  stat(s, { x: 6.4, y: 1.2, w: 3.1, value: "~48 nm", label: "Gate pitch (CPP) of a 3nm-class node", color: HEX.teal, valueSize: 40 });
-  // naming staircase
-  const names = ["28", "20", "16/14", "10", "7", "5", "3", "2"];
-  names.forEach((n, i) => {
-    const x = 0.5 + i * 1.13;
-    s.addShape("chevron", { x, y: 3.55, w: 1.08, h: 0.6, fill: { color: i < 6 ? HEX.mist : HEX.copperTint },
-      line: { color: i < 6 ? HEX.mist : HEX.copperTint } });
-    text(s, n, { x: x + 0.12, y: 3.55, w: 0.86, h: 0.6, fontSize: 15, bold: true, align: "center",
-      valign: "middle", color: HEX.navy });
-  });
-  text(s, "Each step keeps the ~0.7× naming rhythm customers expect, even though no physical feature shrinks by that much.",
-    { x: 0.5, y: 4.35, w: 9, h: 0.6, fontSize: 14, color: HEX.slate, italic: true });
-  s.addNotes("Gate length stopped tracking node names in the late 1990s. Names kept the 0.7x cadence for marketing. Intel renamed its nodes in 2021 to line up with the industry.");
-}
+// ================================================================ Part 1
+section("1 · How a transistor really works", "From silicon atoms to an on/off switch", "Part one: what physically happens inside the switch.");
 
-// ---------------------------------------------------------------- 4. Metrics
+imageSlide("Inside a MOSFET: OFF vs ON", "11-mosfet-off-on.png",
+  "A gate voltage above Vt pulls electrons up and creates the channel",
+  "MOSFET stands for metal-oxide-semiconductor field-effect transistor. The source and drain are silicon with extra electrons added. The body in between is p-type, which has almost no free electrons, so nothing flows. Put a positive voltage on the gate and its electric field pulls electrons to the surface just under the gate oxide. Once enough gather, they form a thin conducting layer called the channel, and current flows from source to drain.");
+
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("The numbers that actually describe a node", { placeholder: "title" });
-  const m = [
-    ["CPP", "Contacted poly (gate) pitch: sets standard-cell width"],
-    ["MMP", "Minimum metal pitch: sets cell height and routing"],
-    ["Cell height", "tracks × MMP, e.g. 6 × 23 nm ≈ 138 nm"],
-    ["Logic density", "MTr/mm², e.g. 0.6·NAND2 + 0.4·scan flip-flop"],
-    ["SRAM bit cell", "µm² per 6T cell: barely shrinking lately"],
-    ["Cost & yield", "$ per wafer and good dies per wafer decide everything"],
+  s.addText("Six terms, in plain words", { placeholder: "title" });
+  const terms = [
+    ["Doping", "Adding a pinch of another element to silicon. n-type gives spare electrons; p-type leaves “holes”."],
+    ["Channel", "The thin layer of electrons the gate pulls up. Only exists when the switch is ON. About 1–2 nm deep."],
+    ["Threshold voltage (Vt)", "The gate voltage where the channel appears. Typically ~0.25–0.35 V today."],
+    ["Gate oxide / high-k", "The insulator under the gate, ~1 nm. Hafnium oxide (“high-k”) replaced SiO₂ around 2007 to stop it leaking."],
+    ["VDD (supply voltage)", "The voltage that runs the chip, ~0.7 V today. Lower VDD = less power, but the switch must still turn fully on."],
+    ["nMOS + pMOS = CMOS", "Every logic gate pairs an n-type and a p-type transistor, so almost no current flows when idle."],
   ];
-  m.forEach(([t, b], i) => {
-    const col = i % 3, row = Math.floor(i / 3);
-    card(s, { x: 0.5 + col * 3.05, y: 1.25 + row * 1.95, w: 2.85, h: 1.75, title: t, body: b, num: i + 1,
-      fill: i === 4 ? HEX.copperTint : HEX.mist });
+  terms.forEach(([t, b], i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    card(s, { x: 0.5 + col * 4.6, y: 1.1 + row * 1.35, w: 4.4, h: 1.2, title: t, body: b, titleSize: 15, bodySize: 12.5,
+      fill: i % 3 === 0 ? HEX.tealTint : HEX.mist });
   });
-  s.addNotes("Compare nodes on pitches, density, SRAM cell area, performance per watt, yield and wafer cost, never on the name. SRAM scaling slowing down matters a lot for caches and AI chips.");
+  s.addNotes("Keep this slide handy. These six terms come back every week.");
 }
 
-// ---------------------------------------------------------------- 5. Pitch chart
+// ================================================================ Part 2
+section("2 · Why small transistors leak", "Reading the switch's report card", "Part two: how engineers grade a transistor, and why shrinking it hurts.");
+
+imageSlide("The I–V curve: a transistor's report card", "12-id-vg-curve.png",
+  "Good switch: tiny OFF leak, big ON current, steep in between",
+  "This plots drain current against gate voltage on a logarithmic scale, where each grid line is ten times more current. Three things matter. The OFF current at zero volts is leakage. The ON current at VDD is how hard the switch drives. The slope in between is how sharply it turns on. The red device has the same ON current but leaks about 160 times more when off.");
+
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("The three numbers that grade a switch", { placeholder: "title" });
+  stat(s, { x: 0.5, y: 1.1, w: 2.9, value: "I_on", label: "ON current. Higher = faster chip.", color: HEX.teal, valueSize: 40 });
+  stat(s, { x: 3.55, y: 1.1, w: 2.9, value: "I_off", label: "OFF leakage. Lower = better battery and less heat.", color: HEX.red, valueSize: 40 });
+  stat(s, { x: 6.6, y: 1.1, w: 2.9, value: "SS", label: "Subthreshold swing: mV of gate voltage for 10× current.", color: HEX.copper, valueSize: 40 });
+  card(s, { x: 0.5, y: 3.0, w: 9.0, h: 1.95, fill: HEX.copperTint, title: "Why can't SS go below ~60 mV per decade?",
+    body: "Electrons have a spread of energies set by temperature, like water molecules in a warm pond. At room temperature the thermal voltage kT/q ≈ 26 mV, and turning current up 10× needs ln(10) ≈ 2.3 times that: 26 × 2.3 ≈ 60 mV. No ordinary transistor beats this. Real ones are ~65–75 mV/decade. The worse the gate control, the bigger the number." });
+  s.addNotes("SS stands for subthreshold swing. Physics sets a floor of about 60 millivolts per decade at room temperature, because of the thermal spread of electron energies.");
+}
+
+imageSlide("Why short channels leak: the dam picture", "13-short-channel-dam.png",
+  "In a short channel the drain helps lower the barrier: that's DIBL",
+  "Think of electron energy as height. The source is a reservoir, the drain is lower ground, and the gate controls a dam in between. In a long channel only the gate sets the dam height. In a short channel the drain is so close that its voltage pulls the dam down and thins it. Electrons spill over even when the gate says off. That's drain-induced barrier lowering, DIBL.");
+
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("Three ways to give the gate back control", { placeholder: "title" });
+  card(s, { x: 0.5, y: 1.1, w: 4.1, h: 2.2, fill: HEX.copperTint, title: "The rule of thumb",
+    body: "Engineers use a “natural length” λ:\nλ ≈ √(ε_si · t_si · t_ox / (N · ε_ox))\nThe gate length must be several λ. So shrink λ." });
+  text(s, "In plain words: thinner silicon, a better insulator, or more gate around the channel.", { x: 0.5, y: 3.45, w: 4.1, h: 0.7,
+    fontSize: 14, italic: true, color: HEX.slate });
+  const levers = [
+    ["Thinner silicon body (t_si)", "Less room for the drain's field to sneak under (5 nm sheets)."],
+    ["Better insulator (t_ox, ε)", "High-k hafnium oxide since ~2007: thicker but more effective."],
+    ["More gates around it (N)", "1 side → 3 sides (FinFET) → 4 sides (nanosheet)."],
+  ];
+  levers.forEach(([t, b], i) => card(s, { x: 4.9, y: 1.1 + i * 1.05, w: 4.6, h: 0.95, num: i + 1, title: t, body: b,
+    titleSize: 14, bodySize: 12, fill: i === 2 ? HEX.tealTint : HEX.mist }));
+  text(s, "Worked example: with SS = 75 mV/dec, cutting leakage 10× needs Vt +75 mV. At 60 mV/dec, only +60 mV. Steeper = lower VDD = less power.",
+    { x: 0.5, y: 4.3, w: 9, h: 0.6, fontSize: 13, color: HEX.ink });
+  s.addNotes("The natural-length formula just says: thin body, good insulator, and many gate sides all help the gate dominate the drain.");
+}
+
+// ================================================================ Part 3
+section("3 · How a node is measured", "Forget the name: measure the pitches", "Part three: the real dimensions of a process node.");
+
+imageSlide("A standard cell from above", "14-standard-cell-pitches.png",
+  "Cell width is counted in gate pitches; cell height in metal tracks",
+  "Chips are built from standard cells: pre-designed blocks like a NAND gate or a flip-flop. Their width is a whole number of gate pitches, called CPP. Their height is a whole number of metal tracks times the metal pitch, called MMP. A six-track cell at 23 nanometre pitch is about 138 nanometres tall.");
+
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
   s.addText("Pitches have nearly stopped shrinking", { placeholder: "title" });
   const labels = ["Intel 22nm", "Intel 14nm", "TSMC N7", "TSMC N5", "TSMC N3E", "TSMC N2 (est.)"];
   s.addChart(pres.charts.BAR, [
-    { name: "Gate pitch (CPP, nm)", labels, values: [90, 70, 57, 51, 48, 45] },
-    { name: "Min metal pitch (MMP, nm)", labels, values: [80, 52, 40, 28, 23, 21] },
-  ], {
-    x: 0.4, y: 1.15, w: 6.1, h: 3.95, barDir: "col", barGrouping: "clustered",
-    chartColors: [HEX.navy, HEX.copper], showValue: true, dataLabelPosition: "outEnd",
-    dataLabelFontSize: 10, dataLabelColor: HEX.ink, dataLabelFontFace: "+mn-lt",
-    catAxisLabelColor: HEX.slate, catAxisLabelFontSize: 10, catAxisLabelFontFace: "+mn-lt",
-    valAxisLabelColor: HEX.slate, valAxisLabelFontSize: 10, valAxisLabelFontFace: "+mn-lt",
-    valGridLine: { color: HEX.line, size: 0.5 }, catGridLine: { style: "none" },
-    showLegend: true, legendPos: "t", legendFontSize: 11, legendFontFace: "+mn-lt", legendColor: HEX.ink,
-    showTitle: false,
-  });
-  card(s, { x: 6.8, y: 1.25, w: 2.7, h: 2.2, fill: HEX.copperTint, title: "Read the chart",
-    body: "Gate pitch moved only ~6 nm from N5 to N2. Density still improves, mostly through DTCO tricks." });
-  text(s, "Approximate published and analyst figures; they vary by source and process variant.",
-    { x: 6.8, y: 3.65, w: 2.7, h: 0.9, fontSize: 11, color: HEX.slate, italic: true });
-  s.addNotes("Figures are rounded, approximate, and vary by source. The point is the trend: pitch scaling has slowed sharply, so density comes from design-technology co-optimisation.");
+    { name: "Gate pitch CPP (nm)", labels, values: [90, 70, 57, 51, 48, 45] },
+    { name: "Metal pitch MMP (nm)", labels, values: [80, 52, 40, 28, 23, 21] },
+  ], { x: 0.4, y: 1.1, w: 6.1, h: 4.0, barDir: "col", barGrouping: "clustered", chartColors: [HEX.navy, HEX.copper],
+    showValue: true, dataLabelPosition: "outEnd", showLegend: true, legendPos: "t", legendFontSize: 11, legendFontFace: "+mn-lt",
+    legendColor: HEX.ink, ...CHART_STYLE });
+  card(s, { x: 6.8, y: 1.2, w: 2.7, h: 2.3, fill: HEX.copperTint, title: "Read the chart",
+    body: "From N5 to N2, gate pitch moved only ~6 nm. Density still improves, mostly through DTCO (next slide)." });
+  text(s, "Approximate published/analyst figures; they vary by source and process variant.", { x: 6.8, y: 3.7, w: 2.7, h: 0.8,
+    fontSize: 11, italic: true, color: HEX.slate });
+  s.addNotes("Rounded, approximate figures. The trend is what matters: pitch scaling has slowed sharply.");
 }
 
-// ---------------------------------------------------------------- 6. DTCO / cell tracks
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("DTCO: smaller cells at the same pitch", { placeholder: "title" });
-  const cells = [
-    { label: "7.5-track", tracks: 7.5, rails: true },
-    { label: "6-track", tracks: 6, rails: true },
-    { label: "5-track + backside power", tracks: 5, rails: false },
-  ];
-  const k = 0.42, base = 4.6;
-  cells.forEach((c, i) => {
-    const x = 0.6 + i * 1.75, w = 1.25, h = c.tracks * k, y = base - h;
-    s.addShape("rect", { x, y, w, h, fill: { color: HEX.mist }, line: { color: HEX.slate, width: 1 } });
-    for (let t = 1; t < Math.floor(c.tracks); t++) {
-      s.addShape("line", { x: x + 0.08, y: y + t * k, w: w - 0.16, h: 0, line: { color: HEX.teal, width: 1.5 } });
-    }
-    if (c.rails) {
-      [y - 0.06, base - 0.06].forEach((ry) => s.addShape("rect", { x, y: ry, w, h: 0.12,
-        fill: { color: HEX.copper }, line: { color: HEX.copper } }));
-    } else {
-      s.addShape("rect", { x, y: base + 0.02, w, h: 0.12, fill: { color: HEX.copper, transparency: 50 },
-        line: { color: HEX.copper, dashType: "dash" } });
-    }
-    text(s, c.label, { x: x - 0.2, y: base + 0.2, w: w + 0.4, h: 0.45, fontSize: 12, align: "center", color: HEX.ink });
-  });
-  text(s, "Teal lines = routing tracks  ·  Copper = power rails", { x: 0.6, y: 1.15, w: 4.9, h: 0.3, fontSize: 11, color: HEX.slate });
+  s.addText("DTCO: shrink the cell, not the pitch", { placeholder: "title" });
+  s.addChart(pres.charts.BAR, [
+    { name: "Cell height (nm) at MMP = 23 nm", labels: ["7.5 tracks", "6 tracks", "5 tracks"], values: [172.5, 138, 115] },
+  ], { x: 0.4, y: 1.1, w: 4.6, h: 3.9, barDir: "col", chartColors: [HEX.teal], showValue: true, dataLabelPosition: "outEnd",
+    showLegend: false, showTitle: true, title: "Same pitch, fewer tracks", titleFontSize: 13, titleColor: HEX.ink, titleFontFace: "+mn-lt",
+    ...CHART_STYLE });
+  text(s, "DTCO = design-technology co-optimisation: process and cell designers change the rules together.", { x: 5.3, y: 1.15, w: 4.2, h: 0.7,
+    fontSize: 14, bold: true, color: HEX.navy });
   bullets(s, [
-    "Fewer tracks per cell: 9T → 7.5T → 6T → ~5T",
-    "Fin depopulation: 3 → 2 → 1 fin per device",
-    "Contact over active gate (COAG)",
-    "Single diffusion break at cell edges",
-    "Power rails moved under the cell, freeing tracks",
-  ], { x: 6.0, y: 1.3, w: 3.5, h: 3.5, fontSize: 15 });
-  s.addNotes("Cell height equals tracks times metal pitch. Cutting tracks shrinks area even at constant pitch. Moving power rails to the back frees tracks in every cell.");
+    "Fewer tracks per cell (7.5 → 6 → 5): −33% height",
+    "Fin depopulation: 3 → 2 → 1 fin per transistor",
+    "Contact over active gate (COAG): put the gate contact right on top of the transistor",
+    "Single diffusion break: thinner gaps between cells",
+    "Backside power: frees the tracks used by power rails",
+  ], { x: 5.3, y: 1.95, w: 4.2, h: 3.0, fontSize: 13 });
+  s.addNotes("Cell height equals tracks times metal pitch. Cutting tracks shrinks area even when the pitch is fixed.");
 }
 
-// ---------------------------------------------------------------- 7. Section
-{
-  const s = pres.addSlide({ masterName: "SECTION_DARK" });
-  s.addText("Gate control is everything", { placeholder: "title" });
-  s.addText("Why the transistor keeps changing shape", { placeholder: "body" });
-  s.addNotes("Section two: electrostatics.");
-}
-
-// ---------------------------------------------------------------- 8. Electrostatics
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Short channels leak: wrap more gate around them", { placeholder: "title" });
-  stat(s, { x: 0.5, y: 1.15, w: 3.2, value: "60 mV/dec", label: "Ideal subthreshold swing at 300 K: (kT/q)·ln10", valueSize: 40 });
-  card(s, { x: 0.5, y: 3.0, w: 3.2, h: 1.9, fill: HEX.copperTint, title: "Natural length",
-    body: "λ ≈ √(ε_si · t_si · t_ox / (N · ε_ox))\nGate length should be several λ. N = gates around the channel." });
-  const levers = [
-    ["Thinner body (t_si)", "Fins, nanosheets, FD-SOI"],
-    ["Better dielectric (t_ox, ε)", "High-k / metal gate since 45nm"],
-    ["More gates around channel (N)", "1 → 3 → 4 sides: planar → FinFET → GAA"],
+  s.addText("Density and the SRAM problem", { placeholder: "title" });
+  card(s, { x: 0.5, y: 1.1, w: 4.3, h: 3.85, fill: HEX.mist, title: "Logic density (MTr/mm²)",
+    body: "Million transistors per square millimetre. One common formula weights a small and a large cell:\n\n0.6 × NAND2 density + 0.4 × scan flip-flop density\n\nUseful for comparing processes, but real chips vary a lot with design and libraries." });
+  card(s, { x: 5.1, y: 1.1, w: 4.4, h: 3.85, fill: HEX.copperTint, title: "SRAM has stopped shrinking",
+    body: "SRAM is the fast memory (cache) on every chip. A bit cell uses 6 transistors.\n\nTSMC's reported high-density SRAM cell: ~0.021 µm² at N5 and roughly the same at N3E. N2 reportedly gets only a modest shrink.\n\nAI chips need huge caches, so this pushes designs toward chiplets and stacked cache (week 5)." });
+  s.addNotes("SRAM scaling stalling is one of the most important trends of the decade. Figures are as reported publicly and rounded.");
+}
+
+// ================================================================ Part 4
+section("4 · From FinFET to nanosheet", "Shapes, sizes, and how they're built", "Part four: the 3D structures and the manufacturing flow.");
+
+imageSlide("FinFET vs nanosheet in 3D", "15-finfet-vs-nanosheet-3d.png",
+  "Similar total width, but nanosheets wrap every side and can be any width",
+  "A FinFET channel is a tall thin fin with the gate on three sides. A nanosheet transistor uses a stack of three thin horizontal sheets with the gate wrapped all the way around each. Effective width is the total perimeter the gate controls: two times height plus width for a fin, and two times width plus thickness, times the number of sheets, for nanosheets.");
+
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("Worked example: sizing a transistor", { placeholder: "title" });
+  table(s, ["Device", "Formula", "Effective width"], [
+    ["1 fin (H 50, W 6)", "1 × (2·50 + 6)", "106 nm"],
+    ["2 fins", "2 × (2·50 + 6)", "212 nm"],
+    ["3 fins", "3 × (2·50 + 6)", "318 nm"],
+    ["3 sheets, 15 nm wide", "3 × 2·(15 + 5)", "120 nm"],
+    ["3 sheets, 30 nm wide", "3 × 2·(30 + 5)", "210 nm"],
+    ["3 sheets, 45 nm wide", "3 × 2·(45 + 5)", "300 nm"],
+  ], { x: 0.5, y: 1.15, w: 5.6, colW: [2.0, 2.0, 1.6], rowH: 0.5 });
+  card(s, { x: 6.4, y: 1.15, w: 3.1, h: 3.5, fill: HEX.tealTint, title: "Why it matters",
+    body: "Fins only come in steps of 106 nm. Sheet width can be anything in between.\n\nLibrary designers get back fine control: narrow sheets for low-power cells, wide sheets for fast ones." });
+  s.addNotes("Effective width sets drive current. FinFETs come in whole fins; nanosheets can be tuned continuously.");
+}
+
+imageSlide("How a nanosheet transistor is built", "16-nanosheet-process-8-steps.png",
+  "Build with a temporary material, then swap it for the real gate",
+  "The trick is to build everything around placeholders. Grow alternating silicon and silicon-germanium layers. Put a dummy gate on top. Cut away the sides, notch the silicon-germanium ends and fill them with insulator, grow the source and drain. Then remove the dummy gate and dissolve the silicon-germanium, leaving floating silicon sheets. Finally coat everything with the real gate stack and add contacts.");
+
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("The three hardest steps, explained", { placeholder: "title" });
+  const hard = [
+    ["Inner spacers (step 4)", "Etch a few nanometres sideways into each SiGe layer and fill the notch with insulator. Stops the gate shorting to source/drain and cuts unwanted capacitance. Needs ~1 nm control, uniformly, on billions of devices."],
+    ["Channel release (step 6)", "A chemical must dissolve SiGe but barely touch silicon: a selectivity of 100:1 or more. Too little and SiGe remains; too much and the sheets get thinned or damaged."],
+    ["Gate fill (step 7)", "Insulator plus several metal layers must coat all sides of every sheet inside ~10 nm gaps, using atomic layer deposition (ALD). Little room means fewer threshold-voltage options (Vt flavours) for designers."],
   ];
-  levers.forEach(([t, b], i) => card(s, { x: 4.1, y: 1.15 + i * 1.27, w: 5.4, h: 1.12, num: i + 1, title: t, body: b,
-    fill: i === 2 ? HEX.tealTint : HEX.mist, bodySize: 13 }));
-  s.addNotes("DIBL and Vt roll-off happen when the drain controls the channel. Swing worse than 60 mV per decade means more leakage or higher VDD. The levers are body thickness, dielectric, and number of gates.");
+  hard.forEach(([t, b], i) => card(s, { x: 0.5 + i * 3.05, y: 1.15, w: 2.85, h: 3.75, num: i + 1, title: t, body: b, titleSize: 14,
+    bodySize: 12.5, fill: HEX.copperTint }));
+  s.addNotes("Vt flavours are the different threshold voltages designers pick from: low Vt for speed, high Vt for low leakage. Each needs a slightly different metal stack, and nanosheets leave little room.");
 }
 
-// ---------------------------------------------------------------- 9. Structures
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("From planar to stacked: the gate wraps further", { placeholder: "title" });
-  const panels = [
-    { name: "Planar", sides: "Gate on 1 side", when: "to 28/20nm", kind: "planar" },
-    { name: "FinFET", sides: "Gate on 3 sides", when: "22nm (2011) → 3nm", kind: "fin" },
-    { name: "GAA nanosheet", sides: "Gate on 4 sides", when: "SF3 2022, N2, 18A", kind: "gaa" },
-    { name: "CFET", sides: "nFET stacked on pFET", when: "Research, 2030s", kind: "cfet" },
-  ];
-  panels.forEach((p, i) => {
-    const x = 0.5 + i * 2.3, y = 1.2, w = 2.1, h = 2.55;
-    s.addShape("roundRect", { x, y, w, h, rectRadius: 0.08, fill: { color: HEX.mist }, line: { color: HEX.mist } });
-    const sub = { x: x + 0.2, y: y + 2.0, w: w - 0.4, h: 0.4 };
-    s.addShape("rect", { ...sub, fill: { color: HEX.slate }, line: { color: HEX.slate } }); // substrate
-    const cx = x + w / 2;
-    const gate = (gx, gy, gw, gh) => s.addShape("rect", { x: gx, y: gy, w: gw, h: gh, fill: { color: HEX.copper },
-      line: { color: HEX.copper } });
-    const si = (sx, sy, sw, sh, color = HEX.teal) => s.addShape("rect", { x: sx, y: sy, w: sw, h: sh,
-      fill: { color }, line: { color } });
-    if (p.kind === "planar") {
-      si(sub.x, sub.y - 0.12, sub.w, 0.12);
-      gate(cx - 0.45, sub.y - 0.62, 0.9, 0.45);
-    } else if (p.kind === "fin") {
-      gate(cx - 0.4, y + 0.55, 0.8, sub.y - (y + 0.55));
-      si(cx - 0.16, y + 0.75, 0.32, sub.y - (y + 0.75));
-    } else if (p.kind === "gaa") {
-      gate(cx - 0.55, y + 0.4, 1.1, sub.y - (y + 0.4) - 0.05);
-      [0, 1, 2].forEach((k) => si(cx - 0.4, y + 0.6 + k * 0.42, 0.8, 0.18));
-    } else {
-      gate(cx - 0.55, y + 0.25, 1.1, sub.y - (y + 0.25) - 0.05);
-      [0, 1].forEach((k) => si(cx - 0.4, y + 0.42 + k * 0.33, 0.8, 0.15, HEX.sky));
-      [0, 1].forEach((k) => si(cx - 0.4, y + 1.15 + k * 0.33, 0.8, 0.15));
-      text(s, "p", { x: cx + 0.45, y: y + 0.45, w: 0.3, h: 0.4, fontSize: 12, bold: true, color: HEX.navy });
-      text(s, "n", { x: cx + 0.45, y: y + 1.18, w: 0.3, h: 0.4, fontSize: 12, bold: true, color: HEX.navy });
-    }
-    text(s, p.name, { x, y: y + h + 0.1, w, h: 0.35, fontSize: 15, bold: true, color: HEX.navy, align: "center" });
-    text(s, `${p.sides}\n${p.when}`, { x, y: y + h + 0.45, w, h: 0.6, fontSize: 12, color: HEX.slate, align: "center" });
-  });
-  s.addNotes("Cross-sections looking down the channel. Copper is the gate, teal is the silicon channel, grey is the substrate. Each step wraps more gate around the channel. CFET stacks the p-type device over the n-type.");
+  s.addText("Who sells the tools for each step", { placeholder: "title" });
+  table(s, ["Step type", "What it does", "Main toolmakers"], [
+    ["Lithography", "Prints the patterns with light (week 2)", "ASML (EUV: sole supplier)"],
+    ["Epitaxy", "Grows perfect crystal layers (Si/SiGe, S/D)", "Applied Materials, ASM International"],
+    ["Deposition / ALD", "Coats films one atomic layer at a time", "ASM International, Lam, Tokyo Electron, AMAT"],
+    ["Etch", "Removes material, incl. selective SiGe etch", "Lam Research, Tokyo Electron, AMAT"],
+    ["Metrology / inspection", "Measures and finds defects at nm scale", "KLA, Applied Materials, Onto"],
+  ], { x: 0.5, y: 1.15, w: 9.0, colW: [2.0, 3.8, 3.2], rowH: 0.58 });
+  text(s, "GAA adds many epi, ALD, etch and metrology steps compared with FinFET, so these companies call it a growth driver.",
+    { x: 0.5, y: 4.65, w: 9, h: 0.45, fontSize: 13, italic: true, color: HEX.copper });
+  s.addNotes("Investing angle: a new transistor architecture increases equipment spending per wafer, especially deposition and etch.");
 }
 
-// ---------------------------------------------------------------- 10. Effective width
+// ================================================================ Part 5
+section("5 · Wiring and backside power", "The wires are now the bottleneck", "Part five: the metal layers above the transistors.");
+
+imageSlide("Three ways to deliver power", "17-backside-power-designs.png",
+  "Moving power under the transistors cuts voltage loss and frees space for signals",
+  "A chip has over ten metal layers above the transistors. The bottom layers are only tens of nanometres wide and very resistive. Traditionally power comes in from the top and squeezes down through those thin wires, losing voltage, which is IR drop. Backside power flips the wafer, thins it, and builds the power network underneath. Intel's PowerVia uses thin nano-TSV pillars beside the transistors. TSMC's Super Power Rail connects directly into each transistor's source.");
+
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Same footprint, but nanosheets can be sized freely", { placeholder: "title" });
-  card(s, { x: 0.5, y: 1.2, w: 4.3, h: 2.1, title: "2-fin FinFET", body:
-    "W = fins × (2·H + W_fin)\n= 2 × (2·50 + 6)\n= 212 nm\n\nDrive comes in whole fins only: 1, 2 or 3." });
-  card(s, { x: 5.2, y: 1.2, w: 4.3, h: 2.1, fill: HEX.tealTint, title: "3-sheet nanosheet", body:
-    "W = sheets × 2·(W_sheet + T_sheet)\n= 3 × 2·(30 + 5)\n= 210 nm\n\nSheet width is a design choice: 15, 30 or 45 nm." });
-  stat(s, { x: 0.5, y: 3.5, w: 4.3, value: "212 nm", label: "FinFET effective width", color: HEX.navy, valueSize: 32 });
-  stat(s, { x: 5.2, y: 3.5, w: 4.3, value: "210 nm", label: "Nanosheet effective width", color: HEX.teal, valueSize: 32 });
-  s.addNotes("Worked exercise from the lesson. Raw width is similar. The real wins are better electrostatics and continuous sizing, which brings back analog-style transistor sizing for library designers.");
+  s.addText("Backside power: gains, costs, design impact", { placeholder: "title" });
+  card(s, { x: 0.5, y: 1.1, w: 2.9, h: 3.85, fill: HEX.tealTint, title: "Gains",
+    body: "• Less IR drop (voltage lost in wires)\n• Power rails leave the cell: ~1 more signal track\n• Higher density and clock speed\n• Big win for power-hungry AI chips" });
+  card(s, { x: 3.55, y: 1.1, w: 2.9, h: 3.85, fill: HEX.copperTint, title: "Costs",
+    body: "• Wafer bonding and thinning to ~µm\n• Nano-TSVs or backside contacts\n• Hotspots: less silicon to spread heat\n• Debugging from the back gets harder" });
+  card(s, { x: 6.6, y: 1.1, w: 2.9, h: 3.85, fill: HEX.mist, title: "For chip designers",
+    body: "• New power-grid design and IR/EM sign-off (EM = electromigration, wires wearing out)\n• New thermal analysis\n• New PDK and EDA tool flows\n→ demand for physical-design skills" });
+  s.addNotes("EM stands for electromigration: high current slowly pushes metal atoms and can break a wire. Sign-off means the final checks before a chip is manufactured.");
 }
 
-// ---------------------------------------------------------------- 11. Section
-{
-  const s = pres.addSlide({ masterName: "SECTION_DARK" });
-  s.addText("Building a nanosheet", { placeholder: "title" });
-  s.addText("Grow a layer cake, then carve the gate into it", { placeholder: "body" });
-  s.addNotes("Section three: process flow.");
-}
+imageSlide("What comes after nanosheets", "18-after-nanosheets.png",
+  "Forksheet, then CFET: put n and p closer, then on top of each other",
+  "Every logic gate pairs n-type and p-type transistors. Today they sit side by side with a gap. Forksheet, proposed by the research centre imec, puts an insulating wall between them so they can sit closer. CFET, complementary FET, stacks one on top of the other, roughly halving the footprint. CFET is expected in the 2030s.");
 
-// ---------------------------------------------------------------- 12. Layer cake visual
+// ================================================================ Part 6
+section("6 · The industry view", "Who's racing, and what it means for you", "Part six: companies, careers, and investing.");
+
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Sacrificial SiGe makes room for the gate", { placeholder: "title" });
-  const layers = [HEX.teal, HEX.amber, HEX.teal, HEX.amber, HEX.teal, HEX.amber];
-  const lx = 0.7, lw = 3.0;
-  layers.forEach((c, i) => s.addShape("rect", { x: lx, y: 1.45 + i * 0.36, w: lw, h: 0.32, fill: { color: c },
-    line: { color: HEX.paper, width: 1 } }));
-  s.addShape("rect", { x: lx, y: 1.45 + 6 * 0.36, w: lw, h: 0.5, fill: { color: HEX.slate }, line: { color: HEX.slate } });
-  text(s, "1 · Grow Si / SiGe superlattice", { x: lx, y: 4.25, w: lw, h: 0.35, fontSize: 14, bold: true, color: HEX.navy, align: "center" });
-  arrow(s, 4.0, 2.6, 1.2, HEX.copper);
-  text(s, "Etch SiGe away\nfill with gate", { x: 3.85, y: 3.0, w: 1.5, h: 0.6, fontSize: 11, color: HEX.slate, align: "center" });
-  const rx = 5.6, rw = 3.4;
-  s.addShape("rect", { x: rx, y: 1.3, w: rw, h: 2.75, fill: { color: HEX.copper }, line: { color: HEX.copper } });
-  [0, 1, 2].forEach((k) => {
-    const yy = 1.81 + k * 0.72;
-    s.addShape("rect", { x: rx + 0.4, y: yy, w: rw - 0.8, h: 0.32, fill: { color: HEX.teal }, line: { color: HEX.teal } });
-    [rx + 0.18, rx + rw - 0.4].forEach((sx) => s.addShape("rect", { x: sx, y: yy - 0.18, w: 0.22, h: 0.68,
-      fill: { color: HEX.line }, line: { color: HEX.line } })); // inner spacers
-  });
-  s.addShape("rect", { x: rx, y: 4.05, w: rw, h: 0.2, fill: { color: HEX.slate }, line: { color: HEX.slate } });
-  text(s, "6–7 · Channels released, gate wraps all around", { x: rx - 0.2, y: 4.35, w: rw + 0.4, h: 0.35, fontSize: 14,
-    bold: true, color: HEX.navy, align: "center" });
-  text(s, "Teal = Si channel  ·  Amber = SiGe (sacrificial)  ·  Copper = gate  ·  Light grey = inner spacers",
-    { x: 0.5, y: 4.8, w: 9, h: 0.3, fontSize: 11, color: HEX.slate, align: "center" });
-  s.addNotes("Left: the superlattice as grown. Right: after channel release and replacement metal gate. The inner spacers isolate the gate from source and drain between the sheets.");
-}
-
-// ---------------------------------------------------------------- 13. Process flow
-{
-  const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Eight steps; three of them are the hard part", { placeholder: "title" });
-  const steps = [
-    ["Superlattice epi", false], ["Pattern fins", false], ["Dummy gate + spacers", false], ["Inner spacers", true],
-    ["Source/drain epi", false], ["Channel release", true], ["Gate stack (ALD)", true], ["Contacts + BEOL", false],
-  ];
-  steps.forEach(([t, hard], i) => {
-    const col = i % 4, row = Math.floor(i / 4), x = 0.5 + col * 2.3, y = 1.25 + row * 1.75;
-    s.addShape("roundRect", { x, y, w: 2.1, h: 1.45, rectRadius: 0.08, fill: { color: hard ? HEX.copperTint : HEX.mist },
-      line: { color: hard ? HEX.copper : HEX.mist, width: hard ? 1.5 : 0.5 } });
-    badge(s, i + 1, x + 0.15, y + 0.15, 0.4, hard ? HEX.copper : HEX.slate);
-    text(s, t, { x: x + 0.15, y: y + 0.65, w: 1.8, h: 0.6, fontSize: 14, bold: true, color: HEX.navy });
-  });
-  text(s, "Highlighted: lateral SiGe recess to nm control, selective SiGe removal, and fitting high-k + work-function metals into ~10 nm gaps (this limits Vt flavours).",
-    { x: 0.5, y: 4.75, w: 9, h: 0.45, fontSize: 12, color: HEX.slate });
-  s.addNotes("GAA adds many epitaxy, selective etch, ALD and metrology steps. That is why equipment makers such as Applied Materials, Lam, Tokyo Electron, ASM International and KLA call GAA a growth driver.");
-}
-
-// ---------------------------------------------------------------- 14. Backside power
-{
-  const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Backside power: signals on top, power underneath", { placeholder: "title" });
-  const stack = (x, title, layers) => {
-    let y = 1.3;
-    layers.forEach(([label, color, h, txt = HEX.paper]) => {
-      s.addShape("rect", { x, y, w: 2.2, h, fill: { color }, line: { color: HEX.paper, width: 1 } });
-      text(s, label, { x: x + 0.1, y, w: 2.0, h, fontSize: 11, color: txt, align: "center", valign: "middle" });
-      y += h;
-    });
-    text(s, title, { x, y: y + 0.1, w: 2.2, h: 0.35, fontSize: 14, bold: true, color: HEX.navy, align: "center" });
-  };
-  stack(0.5, "Traditional", [
-    ["Signal + power wiring", HEX.copper, 1.6], ["Transistors", HEX.teal, 0.45], ["Silicon substrate", HEX.slate, 1.0],
-  ]);
-  stack(3.0, "Backside power", [
-    ["Carrier wafer", HEX.slate, 0.55], ["Signal wiring only", HEX.navy, 1.2], ["Transistors", HEX.teal, 0.45],
-    ["Power network", HEX.copper, 0.85],
-  ]);
-  card(s, { x: 5.6, y: 1.3, w: 3.9, h: 1.65, fill: HEX.tealTint, title: "Gains", body:
-    "Lower IR drop · more routing tracks · higher density and clock for power-hungry AI chips" });
-  card(s, { x: 5.6, y: 3.1, w: 3.9, h: 1.65, fill: HEX.copperTint, title: "Costs", body:
-    "Wafer bonding and thinning · nano-TSVs · worse hotspots · new debug, PDK and EDA flows" });
-  s.addNotes("Intel PowerVia ships with 18A using nano-TSVs. TSMC Super Power Rail arrives with A16 using direct backside contacts. For physical designers: new power-grid design, IR and EM sign-off, and thermal analysis.");
-}
-
-// ---------------------------------------------------------------- 15. The race
-{
-  const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("The 2nm-class race to watch", { placeholder: "title" });
-  const head = (t) => ({ text: t, options: { bold: true, color: HEX.paper, fill: { color: HEX.navy } } });
-  const rows = [
+  s.addText("The 2nm-class race", { placeholder: "title" });
+  table(s, ["Company", "Node", "Transistor", "Backside power", "Watch for"], [
     ["TSMC", "N2 → A16", "Nanosheet", "Super Power Rail (A16)", "Volume ramp; Apple and HPC first"],
-    ["Intel", "18A", "RibbonFET", "PowerVia (first)", "Can Intel Foundry win outside customers?"],
+    ["Intel", "18A", "RibbonFET", "PowerVia (first)", "Outside foundry customers"],
     ["Samsung", "SF3 → SF2", "MBCFET (first GAA, 2022)", "Planned (SF2Z)", "Yield and customer wins"],
-  ];
-  s.addTable([["Company", "Node", "Transistor", "Backside power", "Watch for"].map(head),
-    ...rows.map((r, i) => r.map((c, j) => ({ text: c, options: { bold: j === 0, color: HEX.ink,
-      fill: { color: i % 2 ? HEX.paper : HEX.mist } } })))], {
-    x: 0.5, y: 1.25, w: 9.0, colW: [1.2, 1.3, 2.0, 1.9, 2.6], fontFace: "Calibri", fontSize: 13,
-    border: { type: "solid", color: HEX.line, pt: 0.75 }, rowH: 0.62, valign: "middle", margin: 0.08,
-  });
-  text(s, "Don’t compare names: compare density, perf/W, SRAM cell area, yield and wafer price.",
+  ], { x: 0.5, y: 1.2, w: 9.0, colW: [1.2, 1.3, 2.0, 1.9, 2.6], rowH: 0.62 });
+  text(s, "Compare density, performance per watt, SRAM cell area, yield and wafer price, not node names.",
     { x: 0.5, y: 4.4, w: 9, h: 0.4, fontSize: 14, italic: true, color: HEX.copper });
-  s.addNotes("TSMC N2 ramps 2025-2026 with A16 adding backside power. Intel 18A combines RibbonFET and PowerVia. Samsung was first to GAA but has struggled on yield and customer wins.");
+  s.addNotes("Yield is the share of chips on a wafer that work. A low-yield ramp hurts foundry margins and delays customers' products.");
 }
 
-// ---------------------------------------------------------------- 16. Career + investing
 {
   const s = pres.addSlide({ masterName: "CONTENT" });
-  s.addText("Why this matters for you", { placeholder: "title" });
-  card(s, { x: 0.5, y: 1.2, w: 4.35, h: 3.4, fill: HEX.tealTint, title: "Career: design and AI hardware", titleSize: 17,
-    body: "Roles at the process–design boundary are growing:\n\n• Standard-cell library design and characterisation\n• DTCO engineering\n• PDK and EDA flow development\n• IR/EM, thermal and power-integrity sign-off\n\nMuch of this work happens in Indian design centres." });
-  card(s, { x: 5.15, y: 1.2, w: 4.35, h: 3.4, fill: HEX.copperTint, title: "Investing: who gains", titleSize: 17,
-    body: "• Foundries: higher wafer prices at the leading edge\n• Equipment: more epi, etch, ALD, metrology steps (AMAT, Lam, TEL, KLA)\n• EDA: more complex sign-off (Synopsys, Cadence)\n\nKey risk: a slow or low-yield ramp hits margins and customer launches." });
-  s.addNotes("Tie the technology to roles and to where value flows. Not investment advice.");
+  s.addText("Career map: where this week's topics become jobs", { placeholder: "title" });
+  table(s, ["Role", "What they do", "Why GAA/backside power matter"], [
+    ["Standard-cell library designer", "Designs and characterises the logic “Lego bricks”", "New sheet-width and Vt options; new cell rules"],
+    ["DTCO engineer", "Co-optimises process rules and cell layouts", "Track reduction, backside rails"],
+    ["Physical design engineer", "Places and routes blocks into a chip layout", "New power grids, fewer tracks, congestion"],
+    ["Power-integrity / IR-EM engineer", "Signs off voltage drop and wire wear", "Backside power changes everything here"],
+    ["Verification engineer", "Proves the design works before tape-out", "More complex chips = more verification"],
+  ], { x: 0.5, y: 1.15, w: 9.0, colW: [2.4, 3.3, 3.3], rowH: 0.62 });
+  s.addNotes("Tape-out is when the final design is sent to the factory. Many of these roles are hiring in Bengaluru, Hyderabad and Noida design centres.");
 }
 
-// ---------------------------------------------------------------- 17. Recap
+// ---------------------------------------------------------------- practice
+const problems = [
+  ["A 6-track cell at MMP = 21 nm: how tall?", "6 × 21 = 126 nm"],
+  ["Going from 6 to 5 tracks at the same pitch saves what % of cell area?", "1 − 5/6 ≈ 16.7%"],
+  ["SS = 70 mV/dec. How much must Vt rise to cut leakage 100×?", "2 decades × 70 = 140 mV"],
+  ["Effective width of 4 sheets, 25 nm wide, 5 nm thick?", "4 × 2·(25 + 5) = 240 nm"],
+  ["Why does nanosheet gate fill limit Vt flavours?", "Each Vt needs a different metal stack; ~10 nm gaps leave no room"],
+];
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("Practice problems", { placeholder: "title" });
+  problems.forEach(([q], i) => {
+    const y = 1.15 + i * 0.72;
+    badge(s, i + 1, 0.6, y + 0.05, 0.44, HEX.teal);
+    text(s, q, { x: 1.3, y, w: 8.2, h: 0.55, fontSize: 16, valign: "middle" });
+  });
+  text(s, "Work them out on paper, then check the next slide.", { x: 0.5, y: 4.8, w: 9, h: 0.35, fontSize: 13, italic: true, color: HEX.slate });
+  s.addNotes("These use only the formulas from this deck.");
+}
+{
+  const s = pres.addSlide({ masterName: "CONTENT" });
+  s.addText("Answers", { placeholder: "title" });
+  problems.forEach(([q, a], i) => {
+    const y = 1.1 + i * 0.78;
+    badge(s, i + 1, 0.6, y + 0.08, 0.44, HEX.teal);
+    text(s, q, { x: 1.3, y, w: 8.2, h: 0.32, fontSize: 13, color: HEX.slate });
+    text(s, a, { x: 1.3, y: y + 0.3, w: 8.2, h: 0.4, fontSize: 15, bold: true, color: HEX.navy });
+  });
+  s.addNotes("If you got these, you understand week one at an engineer's level.");
+}
+
+// ---------------------------------------------------------------- recap
 {
   const s = pres.addSlide({ masterName: "RECAP_DARK" });
-  s.addText("Five things to remember", { placeholder: "title" });
+  s.addText("Deep dive in six lines", { placeholder: "title" });
   const take = [
-    "Node names are brands: compare pitches, density, SRAM, cost",
-    "Density now comes mostly from DTCO, not from shrinking pitches",
-    "More gate around the channel = better control = lower VDD",
-    "Nanosheets: inner spacers, channel release and gate fill are the hard steps",
-    "Backside power frees routing and cuts IR drop, but adds thermal and flow work",
+    "A gate voltage above Vt pulls electrons up to form the channel",
+    "Grade a switch by I_on, I_off and SS (≥ 60 mV/decade)",
+    "Short channels leak because the drain lowers the barrier (DIBL)",
+    "Nodes = pitches × tracks; density now comes mostly from DTCO",
+    "Nanosheets: build with SiGe placeholders, then swap in the gate",
+    "Backside power moves power wires under the transistors",
   ];
   take.forEach((t, i) => {
-    const y = 1.5 + i * 0.62;
-    badge(s, i + 1, 0.6, y, 0.42);
-    text(s, t, { x: 1.2, y, w: 8.3, h: 0.42, fontSize: 16, color: HEX.paper, valign: "middle" });
+    const y = 1.35 + i * 0.55;
+    badge(s, i + 1, 0.6, y, 0.4);
+    text(s, t, { x: 1.2, y, w: 8.3, h: 0.4, fontSize: 16, color: HEX.paper, valign: "middle" });
   });
-  text(s, "Next: exercises + quiz in notes/week-01  ·  Listen to the Week 1 podcast", { x: 0.6, y: 4.75, w: 8.8, h: 0.35,
+  text(s, "Listen: Week 1 deep-dive podcast  ·  Read: notes/week-01-deep-dive.md", { x: 0.6, y: 4.85, w: 8.8, h: 0.35,
     fontSize: 13, color: HEX.sky });
-  s.addNotes("Recap. Then do the exercises and quiz, and listen to the podcast episode for the same ideas in conversation.");
+  s.addNotes("That's the full week one. Next week: lithography, how chips are printed with light.");
 }
 
 writeDeck(pres, OUT);

@@ -24,7 +24,7 @@ def test_speakable_expands_terms_on_word_boundaries():
     assert make_podcast.speakable("SRAMs") == "SRAMs"
 
 
-@pytest.mark.parametrize("script", sorted(ROOT.glob("weekly/*/podcast-script.md")))
+@pytest.mark.parametrize("script", sorted(ROOT.glob("weekly/*/podcast*-script.md")))
 def test_weekly_scripts_parse(script):
     turns = make_podcast.parse_script(script.read_text(encoding="utf-8"))
     assert len(turns) >= 20
