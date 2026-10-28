@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" font-family="Liberation Sans, Arial, sans-serif">
+  <rect width="1400" height="600" fill="#FFFFFF"/>
+  <defs>
+    <g id="arrow"><polygon points="0,-9 34,-9 34,-22 58,0 34,22 34,9 0,9" fill="#C8763A"/></g>
+  </defs>
+  <text x="700" y="48" font-size="28" font-weight="bold" fill="#0B1F33" text-anchor="middle">How a gate-all-around switch is built: like a layer cake</text>
+
+  <!-- step 1 -->
+  <rect x="30" y="80" width="400" height="500" rx="18" fill="#EEF2F6"/>
+  <text x="230" y="125" font-size="24" font-weight="bold" fill="#0B1F33" text-anchor="middle">Step 1: stack layers</text>
+  <g>
+    <rect x="80" y="160" width="300" height="34" fill="#2A9D8F"/>
+    <rect x="80" y="194" width="300" height="30" fill="#E9C46A"/>
+    <rect x="80" y="224" width="300" height="34" fill="#2A9D8F"/>
+    <rect x="80" y="258" width="300" height="30" fill="#E9C46A"/>
+    <rect x="80" y="288" width="300" height="34" fill="#2A9D8F"/>
+    <rect x="80" y="322" width="300" height="30" fill="#E9C46A"/>
+    <rect x="80" y="352" width="300" height="60" fill="#5B7083"/>
+  </g>
+  <rect x="80" y="440" width="26" height="22" fill="#2A9D8F"/><text x="116" y="458" font-size="19" fill="#14202E">silicon (keeps): the "sponge"</text>
+  <rect x="80" y="475" width="26" height="22" fill="#E9C46A"/><text x="116" y="493" font-size="19" fill="#14202E">temporary layer: the "jam"</text>
+  <text x="230" y="545" font-size="19" fill="#5B7083" text-anchor="middle">each layer only a few nm thick</text>
+
+  <use href="#arrow" x="436" y="300"/>
+
+  <!-- step 2 -->
+  <rect x="500" y="80" width="400" height="500" rx="18" fill="#EEF2F6"/>
+  <text x="700" y="125" font-size="24" font-weight="bold" fill="#0B1F33" text-anchor="middle">Step 2: dissolve the jam</text>
+  <rect x="545" y="150" width="28" height="262" fill="#D5DDE5"/>
+  <rect x="827" y="150" width="28" height="262" fill="#D5DDE5"/>
+  <rect x="573" y="160" width="254" height="34" fill="#2A9D8F"/>
+  <rect x="573" y="224" width="254" height="34" fill="#2A9D8F"/>
+  <rect x="573" y="288" width="254" height="34" fill="#2A9D8F"/>
+  <rect x="545" y="352" width="310" height="60" fill="#5B7083"/>
+  <g fill="#B23A48" font-size="18" text-anchor="middle"><text x="700" y="215">empty gap</text><text x="700" y="279">empty gap</text><text x="700" y="343">empty gap</text></g>
+  <text x="700" y="455" font-size="19" fill="#14202E" text-anchor="middle">A special chemical eats only the "jam".</text>
+  <text x="700" y="485" font-size="19" fill="#14202E" text-anchor="middle">Silicon sheets now float, held at</text>
+  <text x="700" y="515" font-size="19" fill="#14202E" text-anchor="middle">the ends (grey supports).</text>
+
+  <use href="#arrow" x="906" y="300"/>
+
+  <!-- step 3 -->
+  <rect x="970" y="80" width="400" height="500" rx="18" fill="#DDF1EE"/>
+  <text x="1170" y="125" font-size="24" font-weight="bold" fill="#0B1F33" text-anchor="middle">Step 3: fill with the gate</text>
+  <rect x="1015" y="150" width="28" height="262" fill="#D5DDE5"/>
+  <rect x="1297" y="150" width="28" height="262" fill="#D5DDE5"/>
+  <rect x="1043" y="145" width="254" height="207" fill="#C8763A"/>
+  <rect x="1060" y="160" width="220" height="34" fill="#2A9D8F"/>
+  <rect x="1060" y="224" width="220" height="34" fill="#2A9D8F"/>
+  <rect x="1060" y="288" width="220" height="34" fill="#2A9D8F"/>
+  <rect x="1015" y="352" width="310" height="60" fill="#5B7083"/>
+  <text x="1170" y="455" font-size="19" fill="#14202E" text-anchor="middle">Gate metal is sprayed in one</text>
+  <text x="1170" y="485" font-size="19" fill="#14202E" text-anchor="middle">atom-layer at a time, so it coats</text>
+  <text x="1170" y="515" font-size="19" fill="#14202E" text-anchor="middle">every side of every sheet.</text>
+</svg>

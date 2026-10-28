@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" font-family="Liberation Sans, Arial, sans-serif">
+  <rect width="1400" height="640" fill="#FFFFFF"/>
+  <text x="700" y="45" font-size="28" font-weight="bold" fill="#0B1F33" text-anchor="middle">Backside power: move the "water pipes" to the basement</text>
+
+  <!-- BEFORE house -->
+  <g>
+    <rect x="30" y="70" width="640" height="550" rx="18" fill="#EEF2F6"/>
+    <text x="350" y="112" font-size="25" font-weight="bold" fill="#0B1F33" text-anchor="middle">Before: everything in one crowded ceiling</text>
+    <!-- roof -->
+    <path d="M110,240 L350,140 L590,240 Z" fill="#5B7083"/>
+    <!-- ceiling space with tangled wires -->
+    <rect x="110" y="240" width="480" height="120" fill="#FFFFFF" stroke="#14202E" stroke-width="3"/>
+    <path d="M120,265 C200,330 280,250 360,300 S520,260 580,320" stroke="#2E86C1" stroke-width="10" fill="none"/>
+    <path d="M120,320 C200,260 300,340 380,270 S520,330 580,265" stroke="#2E86C1" stroke-width="10" fill="none"/>
+    <path d="M120,290 C220,300 260,260 340,330 S500,280 580,295" stroke="#C8763A" stroke-width="5" fill="none"/>
+    <path d="M120,345 C200,300 300,300 380,345 S520,250 580,345" stroke="#C8763A" stroke-width="5" fill="none"/>
+    <!-- rooms = transistors -->
+    <rect x="110" y="360" width="480" height="100" fill="#2A9D8F" stroke="#14202E" stroke-width="3"/>
+    <g fill="#FFFFFF"><rect x="140" y="385" width="70" height="50"/><rect x="250" y="385" width="70" height="50"/><rect x="380" y="385" width="70" height="50"/><rect x="490" y="385" width="70" height="50"/></g>
+    <text x="350" y="487" font-size="18" fill="#14202E" text-anchor="middle">rooms = the transistors</text>
+    <!-- solid ground -->
+    <rect x="110" y="500" width="480" height="50" fill="#8A6F55"/>
+    <text x="350" y="531" font-size="18" fill="#FFFFFF" text-anchor="middle">solid silicon ground (unused)</text>
+    <rect x="130" y="570" width="26" height="12" fill="#2E86C1"/><text x="165" y="582" font-size="18" fill="#14202E">power "water pipes"</text>
+    <rect x="360" y="572" width="26" height="8" fill="#C8763A"/><text x="395" y="582" font-size="18" fill="#14202E">data "cables"</text>
+  </g>
+
+  <!-- AFTER house -->
+  <g>
+    <rect x="730" y="70" width="640" height="550" rx="18" fill="#DDF1EE"/>
+    <text x="1050" y="112" font-size="25" font-weight="bold" fill="#0B1F33" text-anchor="middle">After: power pipes moved underneath</text>
+    <path d="M810,240 L1050,140 L1290,240 Z" fill="#5B7083"/>
+    <rect x="810" y="240" width="480" height="120" fill="#FFFFFF" stroke="#14202E" stroke-width="3"/>
+    <g stroke="#C8763A" stroke-width="5"><line x1="820" y1="268" x2="1280" y2="268"/><line x1="820" y1="295" x2="1280" y2="295"/><line x1="820" y1="322" x2="1280" y2="322"/><line x1="820" y1="345" x2="1280" y2="345"/></g>
+    <rect x="810" y="360" width="480" height="100" fill="#2A9D8F" stroke="#14202E" stroke-width="3"/>
+    <g fill="#FFFFFF"><rect x="840" y="385" width="70" height="50"/><rect x="950" y="385" width="70" height="50"/><rect x="1080" y="385" width="70" height="50"/><rect x="1190" y="385" width="70" height="50"/></g>
+    <!-- basement with pipes -->
+    <rect x="810" y="460" width="480" height="90" fill="#FFFFFF" stroke="#14202E" stroke-width="3"/>
+    <g stroke="#2E86C1" stroke-width="12"><line x1="820" y1="490" x2="1280" y2="490"/><line x1="820" y1="525" x2="1280" y2="525"/></g>
+    <g stroke="#2E86C1" stroke-width="8"><line x1="875" y1="460" x2="875" y2="490"/><line x1="985" y1="460" x2="985" y2="490"/><line x1="1115" y1="460" x2="1115" y2="490"/><line x1="1225" y1="460" x2="1225" y2="490"/></g>
+    <text x="1050" y="582" font-size="18" fill="#14202E" text-anchor="middle">Ceiling is tidy for data. Pipes are short and fat, so less power is wasted.</text>
+  </g>
+</svg>

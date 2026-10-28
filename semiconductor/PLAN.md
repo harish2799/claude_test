@@ -11,8 +11,12 @@
 | Stack | Python, free sources, Claude API for summaries |
 | Delivery | Daily brief at 7:00 AM IST (01:30 UTC), committed to the repo only (email later, maybe) |
 
+## Teaching style
+Each week starts **from zero**: everyday analogies, labelled illustrations and real-world examples, with no jargon left unexplained.
+The technical version for each week is kept as an optional **deep dive**.
+
 ## Weekly rhythm (~6 h)
-- **Learn (2 h):** one lesson in `semiconductor/notes/`, written at EE level, with diagrams and a 10-question quiz.
+- **Learn (2 h):** beginner lesson + slides + podcast (optional deep dive), with a short self-check quiz.
 - **Build (3 h):** one tracker milestone or one hands-on VLSI/AI-hardware exercise.
 - **Review (1 h):** read the week's daily briefs, answer the quiz, add terms to the glossary.
 

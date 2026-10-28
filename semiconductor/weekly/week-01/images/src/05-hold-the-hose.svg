@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 640" font-family="Liberation Sans, Arial, sans-serif">
+  <rect width="1400" height="640" fill="#FFFFFF"/>
+  <defs>
+    <g id="drop"><path d="M0,0 q-10,16 0,22 q10,-6 0,-22 z" fill="#2E86C1"/></g>
+  </defs>
+  <text x="700" y="45" font-size="27" font-weight="bold" fill="#0B1F33" text-anchor="middle">The tinier the switch, the more it leaks. Fix: grip the channel from more sides.</text>
+  <text x="700" y="78" font-size="20" fill="#5B7083" text-anchor="middle">Pictures show the switch cut open, looking along the direction the current flows</text>
+
+  <!-- panel 1: planar -->
+  <rect x="30" y="100" width="430" height="520" rx="18" fill="#EEF2F6"/>
+  <text x="245" y="145" font-size="26" font-weight="bold" fill="#0B1F33" text-anchor="middle">1. Flat (before 2011)</text>
+  <rect x="80" y="360" width="330" height="70" fill="#5B7083"/>
+  <text x="245" y="403" font-size="18" fill="#FFFFFF" text-anchor="middle">silicon base</text>
+  <rect x="80" y="335" width="330" height="25" fill="#2A9D8F"/>
+  <rect x="160" y="245" width="170" height="85" rx="6" fill="#C8763A"/>
+  <text x="245" y="295" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">GATE</text>
+  <use href="#drop" x="140" y="440"/><use href="#drop" x="245" y="455"/><use href="#drop" x="350" y="440"/>
+  <text x="245" y="525" font-size="21" fill="#14202E" text-anchor="middle">Gate touches 1 side only</text>
+  <text x="245" y="555" font-size="21" fill="#B23A48" text-anchor="middle" font-weight="bold">Leaks a lot</text>
+  <text x="245" y="590" font-size="19" fill="#5B7083" text-anchor="middle" font-style="italic">like pressing a hose with one finger</text>
+
+  <!-- panel 2: FinFET -->
+  <rect x="485" y="100" width="430" height="520" rx="18" fill="#EEF2F6"/>
+  <text x="700" y="145" font-size="26" font-weight="bold" fill="#0B1F33" text-anchor="middle">2. FinFET (2011-2022)</text>
+  <rect x="535" y="380" width="330" height="50" fill="#5B7083"/>
+  <path d="M610,380 V215 a20,20 0 0 1 20,-20 H770 a20,20 0 0 1 20,20 V380 Z" fill="#C8763A"/>
+  <rect x="665" y="230" width="70" height="200" fill="#2A9D8F"/>
+  <text x="700" y="290" font-size="17" font-weight="bold" fill="#FFFFFF" text-anchor="middle">fin</text>
+  <text x="700" y="185" font-size="20" font-weight="bold" fill="#C8763A" text-anchor="middle">GATE</text>
+  <use href="#drop" x="700" y="445"/>
+  <text x="700" y="525" font-size="21" fill="#14202E" text-anchor="middle">Channel stands up like a wall</text>
+  <text x="700" y="555" font-size="21" fill="#E08E0B" text-anchor="middle" font-weight="bold">Gate grips 3 sides, small leak</text>
+  <text x="700" y="590" font-size="19" fill="#5B7083" text-anchor="middle" font-style="italic">like gripping a hose with your hand</text>
+
+  <!-- panel 3: GAA -->
+  <rect x="940" y="100" width="430" height="520" rx="18" fill="#DDF1EE"/>
+  <text x="1155" y="145" font-size="26" font-weight="bold" fill="#0B1F33" text-anchor="middle">3. Gate-all-around (2022+)</text>
+  <rect x="990" y="400" width="330" height="30" fill="#5B7083"/>
+  <rect x="1050" y="180" width="210" height="215" rx="14" fill="#C8763A"/>
+  <rect x="1080" y="205" width="150" height="34" rx="6" fill="#2A9D8F"/>
+  <rect x="1080" y="270" width="150" height="34" rx="6" fill="#2A9D8F"/>
+  <rect x="1080" y="335" width="150" height="34" rx="6" fill="#2A9D8F"/>
+  <line x1="1230" y1="222" x2="1272" y2="222" stroke="#14202E" stroke-width="2"/><text x="1276" y="216" font-size="17" fill="#14202E">silicon</text><text x="1276" y="236" font-size="17" fill="#14202E">sheet</text>
+  <text x="1155" y="172" font-size="20" font-weight="bold" fill="#C8763A" text-anchor="middle">GATE all around</text>
+  <text x="1155" y="525" font-size="21" fill="#14202E" text-anchor="middle">3 thin sheets stacked like pancakes</text>
+  <text x="1155" y="555" font-size="21" fill="#2A9D8F" text-anchor="middle" font-weight="bold">Gate wraps every side, best control</text>
+  <text x="1155" y="590" font-size="19" fill="#5B7083" text-anchor="middle" font-style="italic">like squeezing a hose with your whole fist</text>
+</svg>

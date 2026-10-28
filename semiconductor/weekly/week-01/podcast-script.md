@@ -1,126 +1,126 @@
-# Silicon Explained — Week 1: Why “3 nanometre” isn’t 3 nanometres
+# Silicon Explained — Week 1: How computer chips work
 
-**Hosts:** Dr. Meera (process and device engineer, the expert) and Rohan (an engineer new to the chip industry, the learner).
-**Length:** about 15 minutes.
+**Hosts:** Dr. Meera (chip engineer, the expert) and Rohan (curious, no background in chips, the learner).
+**Length:** about 13 minutes. No background needed.
 
 The audio is generated from this file. Each line starting with a speaker name in bold becomes one spoken turn.
 
 ---
 
-**ROHAN:** Welcome to Silicon Explained, week one. I'm Rohan. I studied electronics, but I've never worked in a fab, and every week I get to ask an expert all the questions I'm slightly embarrassed to ask. With me is Dr. Meera.
+**ROHAN:** Welcome to Silicon Explained, episode one. I'm Rohan, and I'll be honest: I use my phone all day, but I have no idea what's actually inside it. So every week I'm going to ask an expert all the basic questions. With me is Dr. Meera.
 
-**MEERA:** Hi Rohan. And no question is embarrassing. Half the industry quietly wonders about the same things.
+**MEERA:** Hi Rohan. Basic questions are the best kind. Even engineers had to start somewhere.
 
-**ROHAN:** Great, then let's start with the big one. Apple says its phone chip is made on a three nanometre process. So, is something on that chip three nanometres long?
+**ROHAN:** Let's start at the very beginning. People keep saying "chips". What is a chip?
 
-**MEERA:** Honestly? No. Nothing important on that chip measures three nanometres. The name is a brand, a bit like a car model number.
+**MEERA:** Pick up your phone. Somewhere inside is a small, flat square of silicon, about the size of your fingernail. That's the chip. It's the phone's brain. It runs your apps, plays your videos, takes your photos, everything.
 
-**ROHAN:** Wait, really? Then where did the name come from?
+**ROHAN:** And what's inside the chip?
 
-**MEERA:** Back in the nineteen nineties, the node name roughly matched the length of the transistor's gate. A half-micron process had gates around half a micron long. Then, in the late nineties, the two drifted apart. Gate length got hard to shrink because of leakage, but engineers kept finding other ways to pack more transistors in. Every new generation kept the old naming rhythm of roughly zero point seven times the previous number. Twenty-eight, twenty, fourteen, ten, seven, five, three, two. Customers and investors expect that rhythm, so the names kept going.
+**MEERA:** If you zoomed in with a super-powerful microscope, you'd see billions of tiny switches. They're called transistors. And each switch can only do one thing: be on, or be off.
 
-**ROHAN:** So how big is the gate on a three nanometre chip?
+**ROHAN:** Just on or off? That's it?
 
-**MEERA:** The gate length is somewhere around fifteen to twenty nanometres. And the distance from one gate to the next, which we call the contacted poly pitch, or C P P, is around forty-eight nanometres.
+**MEERA:** That's it. On means one, off means zero. Every photo, every song, every message you've ever sent is stored and processed as long patterns of ones and zeros. With billions of switches flipping billions of times every second, you get everything your phone can do.
 
-**ROHAN:** Okay, so if the name is marketing, what numbers should I actually look at?
+**ROHAN:** Okay, so how does a switch that small actually work?
 
-**MEERA:** Think of a city map. First, the gate pitch, C P P. That's like the spacing between streets running north to south, and it sets how wide your standard cells are. Second, the minimum metal pitch. That's the spacing of the thinnest wires, the streets running east to west, and it sets how tall your cells are. Third, logic density, in millions of transistors per square millimetre. Fourth, the size of an SRAM memory cell. And finally, the money ones: what a wafer costs, and how many good chips you get from it.
+**MEERA:** Think of a water tap. There's a tank of water on one side. We call that the source. There's a pipe, which we call the channel. And there's where the water ends up, the drain. In the middle is the tap handle, and on a transistor that's called the gate.
 
-**ROHAN:** You said the metal pitch sets the cell height. How exactly?
+**ROHAN:** So the gate is the handle.
 
-**MEERA:** A standard cell's height is counted in tracks. A track is one metal pitch, one lane for a wire. If your library uses six track cells and the metal pitch is twenty-three nanometres, the cell is six times twenty-three, about a hundred and thirty-eight nanometres tall.
+**MEERA:** Exactly. Put a small voltage on the gate and the tap opens, so electric current flows from source to drain. That's a one. Remove the voltage and the tap closes, no current. That's a zero.
 
-**ROHAN:** So if I want smaller cells, I shrink the pitch?
+**ROHAN:** How many of these taps are we talking about?
 
-**MEERA:** That was the old way. Here's the surprising part. From the five nanometre node to the two nanometre node, the gate pitch has only shrunk by about six nanometres. Pitches have nearly stopped shrinking. So the industry got clever. It shrinks the cell instead. Go from seven and a half tracks to six tracks, then to five. Use fewer fins per transistor. Put the gate contact directly on top of the transistor instead of off to the side. All of that has a name: design technology co-optimisation, or D T C O.
+**MEERA:** Here's a fun comparison. In nineteen seventy-one, Intel made one of the first computer chips. It had about two thousand three hundred switches. In the year two thousand, a desktop computer chip had about forty-two million. And the chip inside an iPhone fifteen Pro, from twenty twenty-three, has about nineteen billion.
 
-**ROHAN:** So D T C O is basically process engineers and designers sitting in the same room?
+**ROHAN:** Nineteen billion! In something the size of my fingernail?
 
-**MEERA:** Exactly. Ten years ago the fab made a process and threw a rulebook over the wall to the designers. Now they design the two together. That's also a good career hint, by the way. People who understand both sides are in high demand.
+**MEERA:** Yes! And that's the whole story of the chip industry: make the switches smaller, fit more of them in, and the chip can do more.
 
-**ROHAN:** Noted! Let's get to the transistor itself. Why does it keep changing shape? Planar, then FinFET, now something called gate-all-around.
+**ROHAN:** So how small is one switch?
 
-**MEERA:** It all comes down to one idea. The gate has to be the boss of the channel. A transistor is a switch. The gate voltage decides whether current flows from source to drain. But when the channel gets very short, the drain starts interfering. Its electric field reaches into the channel and partly turns the transistor on, even when the gate says off.
+**MEERA:** We measure them in nanometres. A nanometre is one billionth of a metre. A human hair is about eighty thousand nanometres wide. A virus is about a hundred. The control part of a modern switch, the gate, is about fifteen to twenty nanometres long. So you could line up about four thousand of them across a single hair.
 
-**ROHAN:** And that shows up as leakage.
+**ROHAN:** That's wild. But why do we keep making them smaller? Isn't it good enough already?
 
-**MEERA:** Right. We measure it with something called subthreshold swing: how many millivolts of gate voltage you need to change the current by ten times. At room temperature, physics sets the best possible value at about sixty millivolts per decade. A short, badly controlled transistor might be at seventy-five or eighty. That means for the same leakage, you need a higher threshold voltage, which means a higher supply voltage, which means more power.
+**MEERA:** Four reasons. One, more switches fit in the same space, so you get more features, like better camera processing and AI. Two, signals travel shorter distances, so the chip is faster. Three, smaller switches use less energy, so your battery lasts longer. And four, more chips fit on each silicon disc in the factory, so each one costs less to make.
 
-**ROHAN:** So how do you make the gate a better boss?
+**ROHAN:** Okay, now the question I really wanted to ask. Phone companies say their chip is "three nanometre". So the switches are three nanometres?
 
-**MEERA:** Three ways. Make the silicon channel thinner, so there's less silicon for the drain to sneak through. Use a better gate insulator, which is why we moved to high-k materials years ago. And the big one: wrap the gate around more sides of the channel.
+**MEERA:** This surprises everyone. No. Nothing on a three nanometre chip is actually three nanometres.
 
-**ROHAN:** That's where FinFET comes in.
+**ROHAN:** What? Then why call it that?
 
-**MEERA:** Yes. In an old planar transistor, the gate sits on top of a flat channel, so it touches it from one side. In a FinFET, the channel stands up like a thin wall, a fin, and the gate drapes over it like a saddle. Now the gate touches three sides. Intel shipped this first, in twenty eleven, at twenty-two nanometres, and FinFETs carried the industry for about ten years, all the way to three nanometres.
+**MEERA:** Have you ever bought wood from a hardware store? A plank sold as a "two by four" isn't two inches by four inches. It's actually one and a half by three and a half. The name is an old tradition that stuck.
 
-**ROHAN:** So why not keep going with fins?
+**ROHAN:** Huh, I didn't know that!
 
-**MEERA:** Two problems. First, the fins got really thin and tall, a few nanometres wide, and you can't push that much further. Second, and designers feel this one, the drive strength comes in whole fins. One fin, two fins, three fins. You can't have two and a half fins. With fewer fins per transistor, you lose flexibility.
+**MEERA:** Chips are the same. Thirty years ago, the name of a chip generation really did match the size of its switches. Over time the two drifted apart, but the industry kept counting down the names anyway. Fourteen, ten, seven, five, three, two. On a "three nanometre" chip, the switches are about twenty nanometres long and about forty-eight nanometres apart.
 
-**ROHAN:** And gate-all-around fixes both?
+**ROHAN:** So "three nanometre" really just means "the next generation after five nanometre".
 
-**MEERA:** It does. Take the fin, slice it horizontally into three or four thin ribbons, and stack them like pancakes with gaps in between. Then fill the gaps with gate. Now the gate wraps all four sides of every ribbon. Those ribbons are called nanosheets. Samsung calls the device M B C FET, Intel calls it RibbonFET, and TSMC just calls it nanosheet.
+**MEERA:** Exactly, like "iPhone fifteen" just means the one after "iPhone fourteen". So when you compare chips, don't look at the nanometre number. Look at what they actually do: speed, battery life, and cost.
 
-**ROHAN:** And the sizing problem?
+**ROHAN:** Got it. So what happens when you keep shrinking the switches? Does it just keep working?
 
-**MEERA:** You get to choose how wide each sheet is. Narrow sheets for small, low-power cells, wide sheets for fast cells. Here's a fun calculation from this week's exercises. A two-fin FinFET with fifty nanometre tall fins has an effective width of about two hundred and twelve nanometres. A three-sheet nanosheet, each sheet thirty nanometres wide, comes to about two hundred and ten. Almost the same! So the win isn't raw current. It's better control, plus the freedom to size.
+**MEERA:** No, and this is the big problem. When a switch gets really tiny, it starts to leak. Even when it's supposed to be off, a little current sneaks through. Like a tap that keeps dripping.
 
-**ROHAN:** Okay, I have to ask. How on earth do you build pancakes with gate metal in between? You can't just slide metal into a three nanometre gap.
+**ROHAN:** And one drip doesn't matter, but billions of dripping taps...
 
-**MEERA:** Ha! That's the clever part. You grow a layer cake first. Alternate layers of silicon and silicon-germanium, one on top of the other. The silicon layers will become your channels. The silicon-germanium layers are temporary. They're placeholders.
+**MEERA:** ...waste your battery and make your phone warm. Exactly.
 
-**ROHAN:** Placeholders for the gate.
+**ROHAN:** So how do you stop the dripping?
 
-**MEERA:** Exactly. You pattern the cake into fins, build a dummy gate, form the source and drain. Then you remove the dummy gate and use a very selective etch that eats the silicon-germanium but leaves the silicon alone. Suddenly your silicon sheets are hanging in the air, held only at the ends. We call that the channel release. Then you deposit the gate insulator and the gate metals, atom layer by atom layer, so they coat every surface, including the gaps between the sheets.
+**MEERA:** Imagine you want to stop water flowing through a garden hose by squeezing it. If you press down with one finger on top, water still gets through. If you grip it with your whole hand around three sides, much better. And if you squeeze it with your whole fist, all the way around, it stops completely.
 
-**ROHAN:** That sounds incredibly hard.
+**ROHAN:** So more grip, less leaking.
 
-**MEERA:** Three steps are especially hard. One: inner spacers. Before you grow the source and drain, you eat a little way into the edges of the silicon-germanium and fill those notches with insulator. That keeps the gate from shorting into the source and drain, and it cuts capacitance. You need control to about a nanometre. Two: the channel release itself, removing the silicon-germanium cleanly without damaging the sheets. Three: fitting the whole gate stack into gaps of about ten nanometres.
+**MEERA:** That's exactly what chip engineers did. Old switches were flat, and the gate only touched the channel from the top. That's the one finger. Then, in twenty eleven, Intel introduced the FinFET. The channel stands up like a thin wall, a fin, and the gate wraps over three sides. That's your hand.
 
-**ROHAN:** Why is the third one such a big deal?
+**ROHAN:** And the fist?
 
-**MEERA:** Because chip designers love options. They want several threshold voltage flavours: ultra-low, low, standard, high. Each flavour usually needs a slightly different metal stack around the gate. But with only about ten nanometres between sheets, there's no room for thick or multiple layers. So offering lots of threshold voltage options gets harder, and library designers have to use other tricks, like adjusting the gate length or the sheet width.
+**MEERA:** That's the newest design, called gate-all-around. The channel is split into three thin sheets, stacked like pancakes, and the gate wraps around every side of every sheet. Samsung shipped it first, in twenty twenty-two, and TSMC and Intel followed around twenty twenty-five.
 
-**ROHAN:** This connects to something I read. Equipment companies say gate-all-around is good for business. Why?
+**ROHAN:** Hold on. How do you get the gate in between pancakes that are only a few nanometres apart? You can't just slide metal in there.
 
-**MEERA:** Look at what we just described. Growing the layer cake is epitaxy. Removing silicon-germanium is selective etch. Coating the gaps is atomic layer deposition. And you need to measure it all, which is metrology. Every one of those is extra equipment and extra steps compared to FinFET. So companies like Applied Materials, Lam Research, Tokyo Electron, A S M International and K L A all benefit. A S M L's E U V scanners matter for patterning, but a lot of the new money goes to deposition and etch.
+**MEERA:** Ha, great question! They use a layer cake trick. First, you build a stack of alternating layers, like a cake. Silicon layers, which are the sponge you want to keep, and temporary layers, which are like the jam.
 
-**ROHAN:** Nice, there's my investing angle. Last big topic: backside power. What's that?
+**ROHAN:** Okay, sponge and jam.
 
-**MEERA:** On a normal chip, all the wiring sits on top of the transistors. Maybe fifteen or more layers of metal. And two very different kinds of wiring share that space: signal wires, carrying the ones and zeros, and power wires, carrying the supply current to every transistor.
+**MEERA:** Then you use a special chemical that dissolves only the jam. Suddenly you've got silicon sheets floating with empty gaps between them, held up at the ends. Finally, you spray in the gate material one atom-thick layer at a time, so it coats every side of every sheet and fills the gaps.
 
-**ROHAN:** Like water pipes and data cables running through the same narrow hallway.
+**ROHAN:** That's incredibly precise.
 
-**MEERA:** Perfect analogy. And the power pipes have to go all the way down to the bottom, through the thinnest, most resistive wires. So you lose voltage along the way. That's called I R drop. And the power rails eat routing tracks in every cell. Backside power says: move the water pipes to the basement.
+**MEERA:** It is. And that's good news for the companies that build the machines that do this. Names like Applied Materials, Lam Research, and A S M L. When chips move to a new design, those machine makers get busy.
 
-**ROHAN:** How do you even get under the transistors? They're sitting on the silicon wafer.
+**ROHAN:** Okay, there was one more thing on my list: power from the back? What's that?
 
-**MEERA:** You build the transistors and the signal wiring as usual. Then you flip the whole wafer over, bond it to a second carrier wafer, and grind away the original silicon until you're almost touching the transistors. Then you build the power network on what used to be the back. Intel calls it PowerVia, and ships it with its eighteen A process. TSMC calls it Super Power Rail, coming with its A sixteen process.
+**MEERA:** On top of all those switches, a chip has more than ten layers of tiny wires. Some carry data, the ones and zeros. Some carry power, the electricity the switches need.
 
-**ROHAN:** That sounds like a big win. What's the catch?
+**ROHAN:** And they're all mixed up together?
 
-**MEERA:** A few. Grinding away the silicon removes a path for heat, so hotspots get worse. And that matters for AI chips, which burn a lot of power. Debugging gets harder too. Engineers used to probe chips from the back, and now the power network is in the way. And the whole design flow changes: power grid design, I R and electromigration sign-off, the process design kit, the E D A tools. Which, again, means jobs for people in physical design and sign-off.
+**MEERA:** Imagine a house where the water pipes and the internet cables are all crammed into the same ceiling. It's messy, and the long, thin water pipes lose pressure along the way. On a chip, that means wasted electricity.
 
-**ROHAN:** Let's zoom out. Who's winning the two nanometre race?
+**ROHAN:** So what's the fix?
 
-**MEERA:** Three players. TSMC is ramping its N2 process, its first gate-all-around node, and its biggest customers, like Apple and the high-performance chip companies, go first. Intel has eighteen A, which combines RibbonFET and PowerVia. That's a big technical bet, and the real test is whether Intel can win outside foundry customers. Samsung actually shipped gate-all-around first, back in twenty twenty-two, but it has struggled with yields and winning big customers. So when you read the news, watch three things: yield, customer wins, and wafer pricing.
+**MEERA:** Move the water pipes to the basement! Engineers flip the chip over and build the power wiring underneath the switches. Now the ceiling is tidy, just for data, and the power pipes are short and fat, so less electricity is wasted. Intel calls it PowerVia, and TSMC calls it Super Power Rail.
 
-**ROHAN:** And not the names.
+**ROHAN:** I love that. Last question: who actually makes these chips?
 
-**MEERA:** Never the names! Compare density, performance per watt, SRAM cell size, yield and cost.
+**MEERA:** Only three companies in the world can make the most advanced ones. TSMC in Taiwan is the biggest. It makes chips for Apple, Nvidia, AMD and others. Samsung in South Korea, and Intel in the United States.
 
-**ROHAN:** Before we wrap up: I want to work in chip design or AI hardware. What should I take from this week?
+**ROHAN:** Wait, so Apple doesn't make its own chips?
 
-**MEERA:** The most interesting work right now is at the boundary between the process and the design. Standard cell library design and characterisation. D T C O. Process design kits and E D A flows. Power integrity and thermal sign-off. Gate-all-around and backside power make all of those harder, so they need more people. And many of those teams sit in design centres in India, in Bengaluru, Hyderabad and Noida.
+**MEERA:** Apple designs them. TSMC builds them. A company that builds chips for others is called a foundry. And building one advanced chip factory costs more than twenty billion dollars.
 
-**ROHAN:** Okay, let me try the recap. One: node names are brands. Look at pitches, density, SRAM and cost. Two: pitches have nearly stopped shrinking, and density now comes from D T C O. Three: more gate around the channel means better control, which means lower voltage. Four: nanosheets are built from a silicon and silicon-germanium layer cake, and the hard steps are inner spacers, channel release and filling the gate. Five: backside power moves the power wiring under the transistors. That frees routing and cuts I R drop, but makes heat and the design flow harder.
+**ROHAN:** Okay, let me try a recap. One: a chip is billions of tiny on-off switches called transistors, and each one works like a tap. Two: smaller switches mean more features, more speed, longer battery and lower cost. Three: "three nanometre" is a nickname, like a two-by-four plank of wood. Four: tiny switches leak, so the gate now wraps all the way around, like squeezing a hose with your fist. Five: power wiring is moving to the basement, underneath the switches.
 
-**MEERA:** That's a perfect summary, Rohan. Gold star.
+**MEERA:** Perfect, Rohan! You've just explained week one better than many textbooks do.
 
-**ROHAN:** Ha! For everyone listening: the slides and the written lesson have the diagrams, the exercises and a ten-question quiz. Next week, we're tackling lithography: how E U V works, why only one company in the world makes the machines, and what High N A changes.
+**ROHAN:** Ha, thanks! Everyone listening: the slides have pictures of everything we talked about, the tap, the hose, the layer cake and the house. Next week: how chips are actually printed, using light.
 
-**MEERA:** See you next week.
+**MEERA:** See you next week!
 
 **ROHAN:** Thanks for listening to Silicon Explained!
