@@ -35,4 +35,8 @@ jobs:
           git add weekly/*/podcast.mp3 weekly/*/podcast.mp3.sha256
           if git diff --cached --quiet; then echo "No audio changes"; exit 0; fi
           git commit -m "Generate podcast audio"
-          git push origin HEAD:${{ github.ref_name }}
+          for i in 1 2 3; do
+            git pull --rebase origin "${{ github.ref_name }}" && git push origin "HEAD:${{ github.ref_name }}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
