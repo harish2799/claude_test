@@ -5,6 +5,8 @@ A 12-week learning plan (see [PLAN.md](PLAN.md)) and a Python news tracker that 
 ## Layout
 ```
 notes/      weekly lessons, quizzes, glossary
+weekly/     per-week slides (.pptx) and podcast (script + MP3)
+tools/      slide-deck builders (Node) and podcast generator (Python)
 tracker/    Python package: sources, watchlist, SQLite storage, fetcher
 tests/      pytest suite with sample feeds
 briefs/     daily briefs (generated, from week 3)
@@ -26,6 +28,20 @@ python -m pytest                   # run tests
 ```
 
 `fetch` prints one line per source (items fetched / kept / new, or the error). One failing feed doesn't stop the rest.
+
+## Weekly slides and podcast
+Each `weekly/week-NN/` folder has:
+- `week-NN-slides.pptx`: visual deck with diagrams, charts and speaker notes
+- `podcast-script.md`: a Q&A between Dr. Meera (expert) and Rohan (learner)
+- `podcast.mp3`: generated from the script by the **Weekly podcast audio** GitHub Action
+  (Microsoft Edge neural voices via `edge-tts`, then `ffmpeg`), committed back automatically
+
+Rebuild locally:
+```bash
+cd semiconductor/tools && npm install && cd ..
+NODE_PATH=tools/node_modules node tools/build_week01_slides.js
+pip install edge-tts && python tools/make_podcast.py --all   # needs ffmpeg + internet
+```
 
 ## Configuration
 - `tracker/sources.toml`: feeds. `filter = true` keeps only items that mention a chip keyword or a watchlist company.
