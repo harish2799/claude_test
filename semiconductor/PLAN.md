@@ -93,4 +93,4 @@ semiconductor/
 - Briefs are **committed to the repo only** for now.
 
 ## Open questions
-1. Any must-follow sources you already read (newsletters, YouTube, analysts)?
+1. Semi Doped podcast feed: not found yet (episodes may already appear via the Chipstrat / Vik's Newsletter feeds).

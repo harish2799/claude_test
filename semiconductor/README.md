@@ -32,7 +32,7 @@ python -m pytest                   # run tests
 - `tracker/watchlist.toml`: 29 companies with aliases. Aliases are matched case-sensitively on word boundaries.
 
 ## Progress
-- [x] Week 1: skeleton, sources, SQLite schema, RSS fetch, lesson 1
+- [x] Week 1: skeleton, 26 sources (incl. 14 newsletters), SQLite schema, RSS fetch, lesson 1
 - [ ] Week 2: Claude tagging (topic, company, region, importance)
 - [ ] Week 3: first daily brief generated locally
 - [ ] Week 4: GitHub Actions daily run at 7:00 AM IST, brief committed to `briefs/`

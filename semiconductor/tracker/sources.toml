@@ -91,3 +91,90 @@ name = "Google News - semiconductor jobs & design centers"
 url = "https://news.google.com/rss/search?q=semiconductor+%22design+center%22+OR+%22chip+design%22+hiring&hl=en-IN&gl=IN&ceid=IN:en"
 category = "jobs"
 filter = false
+
+# --- Newsletters & independent analysts (Substack etc.) ----------------------
+# Paid posts usually appear in feeds with title + free preview only.
+
+[[source]]
+name = "Vik's Newsletter (Vikram Sekar)"
+url = "https://www.viksnewsletter.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Chipstrat (Austin Lyons)"
+url = "https://www.chipstrat.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Damnang"
+url = "https://damnang2.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Nutty"
+url = "https://nuttycld.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "SemiAnalysis (Dylan Patel)"
+url = "https://newsletter.semianalysis.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Fabricated Knowledge (Doug O'Laughlin)"
+url = "https://www.fabricatedknowledge.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "The Chip Letter (Babbage)"
+url = "https://thechipletter.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "More Than Moore (Ian Cutress)"
+url = "https://morethanmoore.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Irrational Analysis"
+url = "https://irrationalanalysis.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Asianometry"
+url = "https://asianometry.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Jason's Chips"
+url = "https://www.jasonschips.ai/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Silicon Matter"
+url = "https://siliconmatter.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Bits and Bytes (Pushkar Ranade)"
+url = "https://semiconductor.substack.com/feed"
+category = "newsletter"
+filter = false
+
+[[source]]
+name = "Chips and Cheese"
+url = "https://chipsandcheese.com/feed"
+category = "technical"
+filter = false
