@@ -66,9 +66,15 @@ def test_match_companies_is_case_sensitive_on_word_boundaries(companies):
 
 
 def test_is_relevant():
-    assert is_relevant("New EUV scanner shipped", [])
-    assert is_relevant("Quarterly results", ["TSMC"])
-    assert not is_relevant("Best budget headphones", [])
+    assert is_relevant("New EUV scanner", "New EUV scanner shipped", [])
+    assert is_relevant("Quarterly results", "Quarterly results", ["TSMC"])
+    assert not is_relevant("Best budget headphones", "Best budget headphones", [])
+
+
+def test_deal_posts_are_noise_even_with_company_match():
+    title = "Save $249 on 32GB of DDR5 with this 9800X3D bundle"
+    assert not is_relevant(title, title, ["AMD"])
+    assert not is_relevant("Black Friday GPU deals", "GPU deals", ["Nvidia"])
 
 
 def test_fetch_filters_broad_sources_and_dedupes(conn, companies):

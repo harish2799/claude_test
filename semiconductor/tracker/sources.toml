@@ -67,24 +67,24 @@ filter = false
 
 [[source]]
 name = "Google News - India semiconductors"
-url = "https://news.google.com/rss/search?q=India+semiconductor+OR+%22India+Semiconductor+Mission%22&hl=en-IN&gl=IN&ceid=IN:en"
+url = "https://news.google.com/rss/search?q=India+(semiconductor+OR+%22chip+fab%22+OR+OSAT+OR+%22Semiconductor+Mission%22)+when:7d&hl=en-IN&gl=IN&ceid=IN:en"
 category = "policy"
 region = "india"
-filter = false
+filter = true
 
 [[source]]
 name = "Google News - US CHIPS Act & export controls"
-url = "https://news.google.com/rss/search?q=%22CHIPS+Act%22+OR+%22chip+export+controls%22&hl=en-US&gl=US&ceid=US:en"
+url = "https://news.google.com/rss/search?q=(%22CHIPS+Act%22+OR+%22chip+export+controls%22)+when:7d&hl=en-US&gl=US&ceid=US:en"
 category = "policy"
 region = "usa"
 filter = false
 
 [[source]]
 name = "Google News - EU Chips Act"
-url = "https://news.google.com/rss/search?q=%22EU+Chips+Act%22+OR+%22European+semiconductor%22&hl=en-GB&gl=GB&ceid=GB:en"
+url = "https://news.google.com/rss/search?q=(%22EU+Chips+Act%22+OR+%22Chips+Act+2.0%22+OR+%22European+semiconductor%22)+when:7d&hl=en-GB&gl=GB&ceid=GB:en"
 category = "policy"
 region = "europe"
-filter = false
+filter = true
 
 [[source]]
 name = "Google News - semiconductor jobs & design centers"

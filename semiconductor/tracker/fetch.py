@@ -13,7 +13,10 @@ import feedparser
 from . import db
 from .config import Company, Source
 
-USER_AGENT = "semiconductor-tracker/0.1 (+https://github.com/harish2799/claude_test)"
+# Substack (*.substack.com) answers 403 to non-browser user agents.
+USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+              "Chrome/124.0 Safari/537.36 semiconductor-tracker/0.1")
+ACCEPT = "application/rss+xml, application/atom+xml, application/xml;q=0.9, text/xml;q=0.8, */*;q=0.5"
 SUMMARY_MAX_CHARS = 1000
 
 # Used only for sources with filter = true. Matched case-insensitively on word
@@ -30,6 +33,8 @@ RELEVANCE_KEYWORDS = [
 _KEYWORD_RE = re.compile(
     r"\b(" + "|".join(re.escape(k) for k in RELEVANCE_KEYWORDS) + r")\b", re.IGNORECASE
 )
+# Shopping/deal posts on broad feeds mention chips but aren't news.
+_NOISE_RE = re.compile(r"\b(save \$|deals?|% off|coupon|discount|lowest price|price drop)\b", re.IGNORECASE)
 _TAG_RE = re.compile(r"<[^>]+>")
 _WS_RE = re.compile(r"\s+")
 
@@ -86,12 +91,14 @@ def match_companies(text: str, companies: list[Company]) -> list[str]:
     ]
 
 
-def is_relevant(text: str, company_matches: list[str]) -> bool:
+def is_relevant(title: str, text: str, company_matches: list[str]) -> bool:
+    if _NOISE_RE.search(title):
+        return False
     return bool(company_matches) or bool(_KEYWORD_RE.search(text))
 
 
 def download(url: str, timeout: float = 20.0) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": ACCEPT})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return resp.read()
 
@@ -104,7 +111,7 @@ def store_entries(
     for entry in entries:
         text = f"{entry.title} {entry.summary}"
         matches = match_companies(text, companies)
-        if source.filter and not is_relevant(text, matches):
+        if source.filter and not is_relevant(entry.title, text, matches):
             continue
         result.kept += 1
         if db.insert_article(conn, sid, entry.url, entry.title, entry.summary,
