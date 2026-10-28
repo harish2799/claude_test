@@ -15,6 +15,7 @@ class Source:
     category: str
     filter: bool = True
     region: str | None = None
+    fallback_url: str | None = None  # tried when url fails (e.g. Substack blocks CI IPs)
 
 
 @dataclass(frozen=True)

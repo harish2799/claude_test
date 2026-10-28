@@ -127,10 +127,18 @@ def fetch_all(
     """Fetch every source. A failing source is reported, not raised."""
     results = []
     for source in sources:
-        try:
-            entries = parse_feed(download(source.url))
-        except Exception as exc:  # network errors, HTTP errors, timeouts
-            results.append(SourceResult(source.name, error=f"{type(exc).__name__}: {exc}"))
+        error = None
+        for url in filter(None, (source.url, source.fallback_url)):
+            try:
+                entries = parse_feed(download(url))
+                break
+            except Exception as exc:  # network errors, HTTP errors, timeouts
+                error = f"{type(exc).__name__}: {exc}"
+        else:
+            results.append(SourceResult(source.name, error=error))
             continue
-        results.append(store_entries(conn, source, entries, companies))
+        result = store_entries(conn, source, entries, companies)
+        if error:
+            result.source += " (via fallback)"
+        results.append(result)
     return results

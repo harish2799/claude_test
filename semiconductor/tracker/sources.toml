@@ -112,12 +112,14 @@ name = "Damnang"
 url = "https://damnang2.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:damnang2.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Nutty"
 url = "https://nuttycld.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:nuttycld.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "SemiAnalysis (Dylan Patel)"
@@ -136,24 +138,28 @@ name = "The Chip Letter (Babbage)"
 url = "https://thechipletter.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:thechipletter.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "More Than Moore (Ian Cutress)"
 url = "https://morethanmoore.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:morethanmoore.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Irrational Analysis"
 url = "https://irrationalanalysis.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:irrationalanalysis.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Asianometry"
 url = "https://asianometry.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:asianometry.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Jason's Chips"
@@ -166,12 +172,14 @@ name = "Silicon Matter"
 url = "https://siliconmatter.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:siliconmatter.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Bits and Bytes (Pushkar Ranade)"
 url = "https://semiconductor.substack.com/feed"
 category = "newsletter"
 filter = false
+fallback_url = "https://news.google.com/rss/search?q=site:semiconductor.substack.com&hl=en-US&gl=US&ceid=US:en"
 
 [[source]]
 name = "Chips and Cheese"

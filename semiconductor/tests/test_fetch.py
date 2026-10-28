@@ -106,3 +106,17 @@ def test_failing_source_does_not_stop_others(conn, companies):
     results = fetch_all(conn, [BROAD, FOCUSED], companies, download=download)
     assert results[0].error and "blocked" in results[0].error
     assert results[1].new == 3
+
+
+def test_fallback_url_used_when_primary_fails(conn, companies):
+    src = Source(name="Focused", url="https://blocked.example/feed", category="newsletter", filter=False,
+                 fallback_url="https://fallback.example/feed")
+
+    def download(url):
+        if "blocked" in url:
+            raise URLError("403")
+        return feed_bytes()
+
+    result = fetch_all(conn, [src], companies, download=download)[0]
+    assert result.error is None and result.new == 3
+    assert result.source == "Focused (via fallback)"
