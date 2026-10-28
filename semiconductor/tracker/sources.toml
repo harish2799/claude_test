@@ -1,0 +1,93 @@
+# News sources for the tracker.
+#
+# filter = true  -> broad feed; keep only items that mention a chip keyword or a
+#                   watchlist company (see RELEVANCE_KEYWORDS in fetch.py).
+# filter = false -> feed is already semiconductor-focused; keep everything.
+# region         -> default region tag for items from this source.
+#
+# Feed URLs were chosen from each site's published RSS/Atom endpoints but could
+# not be verified from the dev container; `python -m tracker fetch` reports any
+# source that fails so it can be fixed or removed.
+
+# --- Industry & technical news ---------------------------------------------
+
+[[source]]
+name = "Semiconductor Engineering"
+url = "https://semiengineering.com/feed/"
+category = "industry"
+filter = false
+
+[[source]]
+name = "EE Times"
+url = "https://www.eetimes.com/feed/"
+category = "industry"
+filter = true
+
+[[source]]
+name = "IEEE Spectrum - Semiconductors"
+url = "https://spectrum.ieee.org/feeds/topic/semiconductors.rss"
+category = "technical"
+filter = false
+
+[[source]]
+name = "Tom's Hardware"
+url = "https://www.tomshardware.com/feeds/all"
+category = "industry"
+filter = true
+
+[[source]]
+name = "ServeTheHome"
+url = "https://www.servethehome.com/feed/"
+category = "ai-hardware"
+filter = true
+
+[[source]]
+name = "The Register"
+url = "https://www.theregister.com/headlines.atom"
+category = "industry"
+filter = true
+
+# --- Research -----------------------------------------------------------------
+
+[[source]]
+name = "arXiv cs.AR (Hardware Architecture)"
+url = "https://rss.arxiv.org/rss/cs.AR"
+category = "research"
+filter = false
+
+# --- Company newsrooms --------------------------------------------------------
+
+[[source]]
+name = "NVIDIA Newsroom"
+url = "https://nvidianews.nvidia.com/releases.xml"
+category = "company"
+filter = false
+
+# --- Region & policy (Google News searches) ----------------------------------
+
+[[source]]
+name = "Google News - India semiconductors"
+url = "https://news.google.com/rss/search?q=India+semiconductor+OR+%22India+Semiconductor+Mission%22&hl=en-IN&gl=IN&ceid=IN:en"
+category = "policy"
+region = "india"
+filter = false
+
+[[source]]
+name = "Google News - US CHIPS Act & export controls"
+url = "https://news.google.com/rss/search?q=%22CHIPS+Act%22+OR+%22chip+export+controls%22&hl=en-US&gl=US&ceid=US:en"
+category = "policy"
+region = "usa"
+filter = false
+
+[[source]]
+name = "Google News - EU Chips Act"
+url = "https://news.google.com/rss/search?q=%22EU+Chips+Act%22+OR+%22European+semiconductor%22&hl=en-GB&gl=GB&ceid=GB:en"
+category = "policy"
+region = "europe"
+filter = false
+
+[[source]]
+name = "Google News - semiconductor jobs & design centers"
+url = "https://news.google.com/rss/search?q=semiconductor+%22design+center%22+OR+%22chip+design%22+hiring&hl=en-IN&gl=IN&ceid=IN:en"
+category = "jobs"
+filter = false

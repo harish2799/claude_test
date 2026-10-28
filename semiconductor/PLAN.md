@@ -9,7 +9,7 @@
 | Regions | India, USA, Europe (plus Taiwan/Korea/Japan/China as supply-chain context) |
 | Time | 5–8 hours/week |
 | Stack | Python, free sources, Claude API for summaries |
-| Delivery | Daily brief |
+| Delivery | Daily brief at 7:00 AM IST (01:30 UTC), committed to the repo only (email later, maybe) |
 
 ## Weekly rhythm (~6 h)
 - **Learn (2 h):** one lesson in `semiconductor/notes/`, written at EE level, with diagrams and a 10-question quiz.
@@ -88,7 +88,9 @@ semiconductor/
 
 **Setup you'll need to do:** add `ANTHROPIC_API_KEY` as a GitHub Actions repository secret.
 
+## Decisions
+- Daily brief at **7:00 AM IST** → GitHub Actions cron `30 1 * * *` (UTC). Scheduled workflows only run from the repository's default branch.
+- Briefs are **committed to the repo only** for now.
+
 ## Open questions
-1. What time and timezone should the daily brief arrive?
-2. Should briefs only be committed to the repo, or also emailed later?
-3. Any must-follow sources you already read (newsletters, YouTube, analysts)?
+1. Any must-follow sources you already read (newsletters, YouTube, analysts)?

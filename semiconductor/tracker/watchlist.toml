@@ -1,0 +1,149 @@
+# Companies the tracker follows.
+#
+# aliases are matched case-sensitively on word boundaries, so short names such
+# as "Arm" or "KLA" don't match ordinary words like "arm".
+
+[[company]]
+name = "Nvidia"
+segment = "ai-compute"
+aliases = ["Nvidia", "NVIDIA"]
+
+[[company]]
+name = "AMD"
+segment = "ai-compute"
+aliases = ["AMD", "Advanced Micro Devices"]
+
+[[company]]
+name = "Intel"
+segment = "ai-compute"
+aliases = ["Intel", "Intel Foundry"]
+
+[[company]]
+name = "Broadcom"
+segment = "ai-compute"
+aliases = ["Broadcom"]
+
+[[company]]
+name = "Marvell"
+segment = "ai-compute"
+aliases = ["Marvell"]
+
+[[company]]
+name = "Qualcomm"
+segment = "ai-compute"
+aliases = ["Qualcomm"]
+
+[[company]]
+name = "Arm"
+segment = "ip"
+aliases = ["Arm Holdings", "Arm"]
+
+[[company]]
+name = "TSMC"
+segment = "foundry"
+aliases = ["TSMC", "Taiwan Semiconductor"]
+
+[[company]]
+name = "Samsung"
+segment = "foundry-memory"
+aliases = ["Samsung"]
+
+[[company]]
+name = "GlobalFoundries"
+segment = "foundry"
+aliases = ["GlobalFoundries"]
+
+[[company]]
+name = "UMC"
+segment = "foundry"
+aliases = ["UMC", "United Microelectronics"]
+
+[[company]]
+name = "SK hynix"
+segment = "memory"
+aliases = ["SK hynix", "SK Hynix", "Hynix"]
+
+[[company]]
+name = "Micron"
+segment = "memory"
+aliases = ["Micron"]
+
+[[company]]
+name = "Kioxia"
+segment = "memory"
+aliases = ["Kioxia"]
+
+[[company]]
+name = "ASML"
+segment = "equipment"
+aliases = ["ASML"]
+
+[[company]]
+name = "Applied Materials"
+segment = "equipment"
+aliases = ["Applied Materials", "AMAT"]
+
+[[company]]
+name = "Lam Research"
+segment = "equipment"
+aliases = ["Lam Research"]
+
+[[company]]
+name = "KLA"
+segment = "equipment"
+aliases = ["KLA"]
+
+[[company]]
+name = "Tokyo Electron"
+segment = "equipment"
+aliases = ["Tokyo Electron"]
+
+[[company]]
+name = "Synopsys"
+segment = "eda-ip"
+aliases = ["Synopsys"]
+
+[[company]]
+name = "Cadence"
+segment = "eda-ip"
+aliases = ["Cadence Design", "Cadence"]
+
+[[company]]
+name = "Siemens EDA"
+segment = "eda-ip"
+aliases = ["Siemens EDA", "Mentor Graphics"]
+
+[[company]]
+name = "ASE"
+segment = "packaging-osat"
+aliases = ["ASE Technology", "ASE Group", "ASE Holdings"]
+
+[[company]]
+name = "Amkor"
+segment = "packaging-osat"
+aliases = ["Amkor"]
+
+[[company]]
+name = "Tata Electronics"
+segment = "india"
+aliases = ["Tata Electronics", "Tata Semiconductor"]
+
+[[company]]
+name = "CG Semi"
+segment = "india"
+aliases = ["CG Semi", "CG Power"]
+
+[[company]]
+name = "Infineon"
+segment = "europe"
+aliases = ["Infineon"]
+
+[[company]]
+name = "STMicroelectronics"
+segment = "europe"
+aliases = ["STMicroelectronics", "STMicro"]
+
+[[company]]
+name = "NXP"
+segment = "europe"
+aliases = ["NXP"]

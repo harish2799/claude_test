@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Broad Tech News</title>
+    <link>https://example.com</link>
+    <description>Everything tech</description>
+    <item>
+      <title>TSMC begins volume production of 2nm nanosheet chips</title>
+      <link>https://example.com/tsmc-2nm?utm_source=rss&amp;utm_medium=feed</link>
+      <description>&lt;p&gt;The foundry says &lt;b&gt;N2&lt;/b&gt; yields are on track.&lt;/p&gt;</description>
+      <pubDate>Mon, 26 Oct 2026 08:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SK hynix and Nvidia talk HBM4 supply</title>
+      <link>https://example.com/hbm4</link>
+      <description>Memory makers race to ship 16-high stacks.</description>
+      <pubDate>Tue, 27 Oct 2026 09:30:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Best budget headphones of the year</title>
+      <link>https://example.com/headphones</link>
+      <description>Our favourite picks to wear around your arm or neck.</description>
+      <pubDate>Tue, 27 Oct 2026 10:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title></title>
+      <link>https://example.com/no-title</link>
+    </item>
+  </channel>
+</rss>
